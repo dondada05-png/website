@@ -43,24 +43,24 @@ export default function HeroSection() {
 
       {/* Hero Content */}
       <div className="hero-content relative z-30 flex flex-col items-center justify-center min-h-[80vh] px-4 pt-24">
-        <div className="text-center mx-auto max-w-4xl w-full">
-            <h1 className="font-dm-sans font-bold text-white mb-8 tracking-[-3.6px] leading-[0.9] text-4xl md:text-5xl lg:text-[72px] xl:text-[88px]">
+    <div className="text-center mx-auto max-w-4xl w-full px-4">
+      <h1 className="font-dm-sans font-bold text-white mb-8 tracking-[-3.6px] leading-[0.9] text-5xl md:text-6xl lg:text-[72px] xl:text-[88px]">
             <span className="block">Africa’s First Streaming</span>
             <span className="block">and Social Platform,</span>
             <span className="block">Powered by</span>
             <span className="block">StroomCoin</span>
           </h1>
 
-            <p className="font-inter font-normal text-white/95 mb-12 mx-auto max-w-2xl text-lg md:text-[20px] sm:text-[18px] leading-[1.45] tracking-[-0.3px]">
+            <p className="font-inter font-normal text-white/95 mb-12 mx-auto max-w-2xl text-xl sm:text-lg md:text-[20px] leading-[1.45] tracking-[-0.3px]">
             Empowering African creators with monetization, exposure, and community impact.
           </p>
 
-          <div className="group relative inline-block">
+          <div className="group relative inline-flex justify-center">
             {/* background pill: fixed large size on md+ to match original design, responsive on small screens */}
-            <div className="md:w-[420px] md:h-[96px] w-auto px-6 py-3 rounded-[62px] bg-button-gradient shadow-[0_4px_40px_rgba(43,87,196,0.2)] transform transition-transform duration-300 ease-out group-hover:scale-105 group-hover:shadow-[0_8px_48px_rgba(43,87,196,0.35)]" />
+            <div className="md:w-[420px] md:h-[96px] w-full max-w-xs sm:max-w-md px-6 py-3 rounded-[62px] bg-button-gradient shadow-[0_4px_40px_rgba(43,87,196,0.2)] transform transition-transform duration-300 ease-out group-hover:scale-105 group-hover:shadow-[0_8px_48px_rgba(43,87,196,0.35)]" />
             <button
               onClick={scrollToContact}
-              className="btn-animated absolute inset-0 flex items-center justify-center px-6 py-3 md:px-0 md:py-0 font-roboto font-bold text-white text-lg md:text-[36px] leading-[1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-[#2B57C4]"
+              className="btn-animated absolute inset-0 flex items-center justify-center px-6 py-3 md:px-0 md:py-0 font-roboto font-bold text-white text-lg md:text-[36px] leading-[1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-[#2B57C4] z-40"
             >
               Contact Us
             </button>
