@@ -119,9 +119,9 @@ export default function Navigation({ activeSection }: NavigationProps) {
             </button>
           </div>
 
-          {/* Center links - evenly distributed across available space */}
-          <div className="flex-1 flex justify-center">
-            <div className="hidden sm:flex items-center justify-evenly w-full max-w-2xl whitespace-nowrap">
+          {/* Navigation links - align to the right side on desktop */}
+          <div className="flex-1 flex justify-end">
+            <div className="hidden sm:flex items-center justify-end gap-6 w-full max-w-2xl whitespace-nowrap">
               {centerItems.map((item) => (
                 <button
                   key={item.id}
