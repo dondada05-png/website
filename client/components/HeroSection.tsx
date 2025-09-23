@@ -59,7 +59,7 @@ export default function HeroSection() {
             <div className="w-[420px] h-[96px] rounded-[62px] bg-button-gradient shadow-[0_2px_39.1px_0_rgba(43,87,196,0.52)] max-w-full transform transition-transform duration-300 ease-out group-hover:scale-[1.04] group-hover:shadow-[0_8px_48px_rgba(43,87,196,0.55)]" />
             <button
               onClick={scrollToContact}
-              className="absolute inset-0 flex items-center justify-center w-full h-full font-roboto font-bold text-white text-[36px] md:text-[30px] sm:text-[24px] leading-[1] transition-transform duration-300 ease-out group-hover:scale-[1.04] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-[#2B57C4]"
+              className="btn-animated absolute inset-0 flex items-center justify-center w-full h-full font-roboto font-bold text-white text-[36px] md:text-[30px] sm:text-[24px] leading-[1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-[#2B57C4]"
             >
               Contact Us
             </button>
