@@ -441,6 +441,57 @@ html, body {
 @media (prefers-reduced-motion: reduce) {
   .nav-label { transition: none; transform: none; }
 }
+
+/* Hero background: linear gradient + large bottom-centered radial glow */
+.bg-hero-gradient {
+  background: linear-gradient(180deg, #000000 0%, #041026 100%);
+}
+
+/* The big radial circle used as a low horizon glow */
+.bg-radial-circle {
+  background: radial-gradient(circle at 50% 0%, #0044ff 0%, #0044ff 30%, rgba(0,68,255,0.35) 55%, rgba(0,0,0,0.0) 80%, #000000 100%);
+  /* larger size for a more pronounced curved horizon */
+  width: 2200px;
+  height: 1000px;
+  border-radius: 50%;
+  bottom: -620px; /* push further down so only a wide top arc is visible */
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 0;
+  /* subtler blur so the glow is clearer but still soft */
+  filter: blur(4px);
+  opacity: 0.9;
+  will-change: transform, filter;
+}
+
+/* Responsive adjustments: scale the glow down on smaller viewports */
+@media (max-width: 1024px) {
+  .bg-radial-circle {
+    width: 1800px;
+    height: 820px;
+    bottom: -560px;
+  }
+}
+@media (max-width: 640px) {
+  .bg-radial-circle {
+    width: 1200px;
+    height: 700px;
+    bottom: -420px;
+  }
+}
+
+/* Ensure hero content sits above the background glow */
+.hero-content,
+.bg-hero-gradient,
+.bg-radial-circle {
+  pointer-events: none;
+}
+.hero-content > * {
+  pointer-events: auto;
+  z-index: 20;
+  position: relative;
+}
 @keyframes float-9 {
   0% { transform: translate(0,0) scale(1); }
   50% { transform: translate(88px,-20px) scale(1.12) rotate(5deg); }

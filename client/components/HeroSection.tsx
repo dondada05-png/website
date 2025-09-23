@@ -7,15 +7,15 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="home" className="relative w-full h-screen bg-black overflow-hidden">
-      {/* Background Gradient */}
+    <section id="home" className="relative w-full h-screen overflow-hidden">
+      {/* Background Gradient (covers full section) */}
       <div className="absolute inset-0 bg-hero-gradient" />
 
-      {/* Large Background Circle - positioned to be visible behind content */}
-      <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/4 w-[1200px] h-[600px] rounded-full border border-[#017DFF] bg-radial-circle opacity-80 z-0" />
+      {/* Large Background Circle implemented via bg-radial-circle class */}
+      <div className="bg-radial-circle" />
 
       {/* Hero Content */}
-      <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 pt-24">
+      <div className="hero-content relative z-30 flex flex-col items-center justify-center h-full px-4 pt-24">
         <div className="text-center mx-auto max-w-[1100px]">
           <h1 className="font-dm-sans font-bold text-white mb-8 tracking-[-3.6px] leading-[0.9] text-[88px] xl:text-[88px] lg:text-[72px] md:text-[56px] sm:text-[42px] xs:text-[34px]">
             <span className="block">Africa’s First Streaming</span>
