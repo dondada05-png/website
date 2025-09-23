@@ -13,8 +13,14 @@ export default function HeroSection() {
 
       {/* Large Background Circle implemented via bg-radial-circle class */}
   <div className="bg-radial-circle" />
-  {/* Additional centered glowing ball */}
-  <div className="glowing-ball" />
+  {/* Seven glowing balls */}
+  <div className="glowing-ball glow-1" />
+  <div className="glowing-ball glow-2" />
+  <div className="glowing-ball glow-3" />
+  <div className="glowing-ball glow-4" />
+  <div className="glowing-ball glow-5" />
+  <div className="glowing-ball glow-6" />
+  <div className="glowing-ball glow-7" />
 
       {/* Hero Content */}
       <div className="hero-content relative z-30 flex flex-col items-center justify-center h-full px-4 pt-24">
