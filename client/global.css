@@ -884,7 +884,36 @@ html, body {
   background: linear-gradient(to bottom, #000000 0%, #001a33 40%, #002b66 70%, #0D0D0D 85%, #101a2b 92%, #1a2a4d 100%);
 }
 .bg-section-gradient {
-  background: none;
+  /* Make section background solid black with a soft blurry overlay to match the hero's dreamy look */
+  background: #000000;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Add a subtle blurred overlay for the explore section to create depth */
+.bg-section-gradient::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: rgba(0,0,0,0.6);
+  border-radius: 8px;
+  pointer-events: none;
+  filter: blur(28px) brightness(0.95);
+  opacity: 0.95;
+  z-index: 1;
+  mix-blend-mode: normal;
+}
+
+@media (max-width: 1024px) {
+  .bg-section-gradient::before { filter: blur(20px); opacity: 0.9; }
+}
+@media (max-width: 640px) {
+  .bg-section-gradient::before { filter: blur(14px); opacity: 0.88; }
 }
 .section-fade-overlay { display: none; }
 
