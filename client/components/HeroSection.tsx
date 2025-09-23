@@ -44,14 +44,14 @@ export default function HeroSection() {
       {/* Hero Content */}
   <div className="hero-content relative z-30 flex flex-col items-center justify-center min-h-[72vh] px-4 py-12 md:py-32 md:min-h-[80vh]">
   <div className="text-center mx-auto w-full px-4 md:px-0 max-w-[1100px]">
-            <h1 className="font-dm-sans font-bold text-white mb-8 tracking-[-1.6px] leading-[0.95] text-4xl sm:text-5xl md:text-6xl lg:text-[72px] xl:text-[88px]">
+            <h1 className="font-dm-sans font-bold text-white mb-8 tracking-[-2px] leading-[0.92] text-5xl sm:text-6xl md:text-7xl lg:text-[72px] xl:text-[88px]">
             <span className="block">Africa’s First Streaming</span>
             <span className="block">and Social Platform,</span>
             <span className="block">Powered by</span>
             <span className="block">StroomCoin</span>
           </h1>
 
-            <p className="font-inter font-normal text-white/95 mb-12 mx-auto max-w-2xl text-base sm:text-lg md:text-[20px] leading-[1.4] tracking-[-0.2px]">
+            <p className="font-inter font-normal text-white/95 mb-12 mx-auto max-w-2xl text-lg sm:text-xl md:text-[22px] leading-[1.35] tracking-[-0.2px]">
             Empowering African creators with monetization, exposure, and community impact.
           </p>
 
