@@ -953,10 +953,11 @@ main > section:not(#home)::before {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%) scale(1.06);
-  width: 140%;
-  height: 140%;
-  background: rgba(0,0,0,0.85);
-  filter: blur(36px);
+  width: 160%;
+  height: 160%;
+  /* darker and stronger blur to deepen the visual weight */
+  background: rgba(0,0,0,0.92);
+  filter: blur(64px);
   pointer-events: none;
   z-index: 0;
 }
@@ -968,10 +969,10 @@ main > section:not(#home) > .container {
 }
 
 @media (max-width: 1024px) {
-  main > section:not(#home)::before { filter: blur(24px); background: rgba(0,0,0,0.86); }
+  main > section:not(#home)::before { filter: blur(40px); background: rgba(0,0,0,0.90); }
 }
 @media (max-width: 640px) {
-  main > section:not(#home)::before { filter: blur(14px); background: rgba(0,0,0,0.88); }
+  main > section:not(#home)::before { filter: blur(22px); background: rgba(0,0,0,0.90); }
 }
 
 /* Add a subtle blurred overlay for the explore section to create depth */
