@@ -42,7 +42,7 @@ export default function HeroSection() {
       </div>
 
       {/* Hero Content */}
-  <div className="hero-content relative z-30 flex flex-col items-center justify-center min-h-[72vh] px-4 py-12 md:py-32 md:min-h-[80vh]">
+  <div className="hero-content relative z-30 flex flex-col items-center justify-center min-h-[72vh] px-4 py-12 md:pt-52 md:pb-24 md:min-h-[80vh]">
   <div className="text-center mx-auto w-full px-4 md:px-0 max-w-[1100px]">
             <h1 className="font-dm-sans font-bold text-white mb-8 tracking-[-2px] leading-[0.92] text-5xl sm:text-6xl md:text-7xl lg:text-[72px] xl:text-[88px]">
             <span className="block">Africa’s First Streaming</span>
@@ -59,7 +59,7 @@ export default function HeroSection() {
             {/* Single CTA button (mobile-first) that retains md+ sizing */}
             <button
               onClick={scrollToContact}
-              className="btn-animated inline-flex items-center justify-center w-full max-w-lg px-10 py-6 md:w-[480px] md:h-[112px] md:px-0 md:py-0 rounded-[72px] font-roboto font-bold text-white text-2xl md:text-[40px] leading-[1] shadow-[0_6px_48px_rgba(43,87,196,0.22)] transform transition-transform duration-300 ease-out"
+              className="btn-animated inline-flex items-center justify-center w-full max-w-xs px-6 py-3 md:mt-24 md:w-[360px] md:h-[88px] md:px-0 md:py-0 rounded-[56px] font-roboto font-bold text-white text-lg md:text-[28px] leading-[1] shadow-[0_6px_40px_rgba(43,87,196,0.18)] transform transition-transform duration-300 ease-out"
             >
               Contact Us
             </button>
