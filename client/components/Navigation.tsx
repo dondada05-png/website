@@ -69,7 +69,7 @@ export default function Navigation({ activeSection }: NavigationProps) {
 
   return (
     <nav className="w-full bg-[#000000] fixed top-0 left-0 right-0 z-50">
-      <div className="mx-auto max-w-7xl w-full py-[15px] px-[40px]">
+      <div className="mx-auto max-w-7xl w-full py-3 px-4 sm:px-6 lg:px-10">
         <div className="flex items-center justify-between w-full">
           {/* Logo - flush left */}
           <div className="flex items-center flex-shrink-0">
@@ -97,7 +97,7 @@ export default function Navigation({ activeSection }: NavigationProps) {
 
           {/* Center links - evenly distributed across available space */}
           <div className="flex-1 flex justify-center">
-            <div className="flex items-center justify-evenly w-full max-w-2xl whitespace-nowrap">
+            <div className="hidden sm:flex items-center justify-evenly w-full max-w-2xl whitespace-nowrap">
               {centerItems.map((item) => (
                 <button
                   key={item.id}
@@ -124,7 +124,7 @@ export default function Navigation({ activeSection }: NavigationProps) {
                   setActiveId(contactItem.id);
                   scrollToSection(contactItem.id);
                 }}
-                className={`text-white font-bold text-sm px-3 py-[6px] leading-none transition-colors hover:text-[#0066ff] whitespace-nowrap nav-link ${
+                className={`text-white font-bold text-sm px-3 py-1 leading-none transition-colors hover:text-[#0066ff] whitespace-nowrap nav-link ${
                   activeId === contactItem.id ? 'active' : ''
                 }`}
               >
