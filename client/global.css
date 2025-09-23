@@ -465,6 +465,42 @@ html, body {
   will-change: transform, filter;
 }
 
+/* glow-wrap allows us to mask or hide orbs when they pass behind the radial curve */
+.glow-wrap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1; /* sits below the radial curve */
+}
+
+/* Create an overlay that matches the radial curve area and blocks/hides glows beneath it.
+   We use a pseudo-element positioned to the same shape as .bg-radial-circle and set mix-blend
+   or a mask to hide underlying glows. */
+.glow-wrap::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -620px; /* match .bg-radial-circle bottom */
+  width: 2200px;
+  height: 1000px;
+  border-radius: 50%;
+  background: #000; /* mask color */
+  z-index: 3; /* above glow-wrap children, but radial circle remains above via z-index:2 */
+  pointer-events: none;
+  filter: blur(6px);
+  /* Use mix-blend-mode to obscure the orbs underneath in browsers that support it */
+  mix-blend-mode: normal;
+  opacity: 0.95;
+}
+
+@media (max-width: 1024px) {
+  .glow-wrap::after { width: 1800px; height: 820px; bottom: -560px; }
+}
+@media (max-width: 640px) {
+  .glow-wrap::after { width: 1200px; height: 700px; bottom: -420px; filter: blur(4px); }
+}
+
 /* Additional glowing ball (centered) — uses the user's provided shadow values */
 .glowing-ball {
   position: absolute;

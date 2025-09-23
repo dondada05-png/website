@@ -28,16 +28,18 @@ export default function HeroSection() {
       {/* Background Gradient (covers full section) */}
       <div className="absolute inset-0 bg-hero-gradient" />
 
-      {/* Large Background Circle implemented via bg-radial-circle class */}
-  <div className="bg-radial-circle" />
-  {/* Seven glowing balls */}
-  <div className="glowing-ball glow-1" />
-  <div className="glowing-ball glow-2" />
-  <div className="glowing-ball glow-3" />
-  <div className="glowing-ball glow-4" />
-  <div className="glowing-ball glow-5" />
-  <div className="glowing-ball glow-6" />
-  <div className="glowing-ball glow-7" />
+          {/* Large Background Circle implemented via bg-radial-circle class */}
+      <div className="bg-radial-circle" />
+      {/* Orbs are wrapped so we can mask them when they pass behind the radial curve */}
+      <div className="glow-wrap absolute inset-0 pointer-events-none">
+        <div className="glowing-ball glow-1" />
+        <div className="glowing-ball glow-2" />
+        <div className="glowing-ball glow-3" />
+        <div className="glowing-ball glow-4" />
+        <div className="glowing-ball glow-5" />
+        <div className="glowing-ball glow-6" />
+        <div className="glowing-ball glow-7" />
+      </div>
 
       {/* Hero Content */}
       <div className="hero-content relative z-30 flex flex-col items-center justify-center h-full px-4 pt-24">
