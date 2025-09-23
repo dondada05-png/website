@@ -511,13 +511,14 @@ html, body {
 .glowing-ball { will-change: transform; }
 
 /* Directional animations: some orbs move left->right, others right->left, up->down, down->up, and diagonals */
-.glow-1 { animation: sweep-1 14s ease-in-out infinite alternate; }
-.glow-2 { animation: sweep-2 16s ease-in-out infinite alternate; }
-.glow-3 { animation: sweep-3 12s ease-in-out infinite alternate; }
-.glow-4 { animation: sweep-4 18s ease-in-out infinite alternate; }
-.glow-5 { animation: sweep-5 15s ease-in-out infinite alternate; }
-.glow-6 { animation: sweep-6 13s ease-in-out infinite alternate; }
-.glow-7 { animation: sweep-7 20s ease-in-out infinite alternate; }
+/* Some orbs will sweep out to the viewport corners, others will linger and move behind the radial curve (bottom area) */
+.glow-1 { animation: sweep-corner-tl 18s ease-in-out infinite alternate; } /* top-left corner */
+.glow-2 { animation: sweep-corner-tr 16s ease-in-out infinite alternate; } /* top-right corner */
+.glow-3 { animation: sweep-corner-bl 14s ease-in-out infinite alternate; } /* bottom-left corner */
+.glow-4 { animation: sweep-behind-a 20s ease-in-out infinite alternate; } /* behind curve (bottom center) */
+.glow-5 { animation: sweep-behind-b 16s ease-in-out infinite alternate; } /* behind curve (lower-left) */
+.glow-6 { animation: sweep-behind-c 18s ease-in-out infinite alternate; } /* behind curve (lower-right) */
+.glow-7 { animation: sweep-corner-br 22s ease-in-out infinite alternate; } /* bottom-right corner */
 
 @keyframes sweep-1 {
   0% { transform: translate(-30vw,-18vh) scale(1); }
@@ -553,6 +554,45 @@ html, body {
   0% { transform: translate(-18vw,-24vh) scale(1); }
  50% { transform: translate(18vw,24vh) scale(1.06); }
 100% { transform: translate(-18vw,-24vh) scale(1); }
+}
+
+/* Corner-reaching sweeps */
+@keyframes sweep-corner-tl {
+  0% { transform: translate(0,0) scale(1); }
+ 50% { transform: translate(-45vw,-45vh) scale(1.08); }
+100% { transform: translate(0,0) scale(1); }
+}
+@keyframes sweep-corner-tr {
+  0% { transform: translate(0,0) scale(1); }
+ 50% { transform: translate(45vw,-45vh) scale(1.08); }
+100% { transform: translate(0,0) scale(1); }
+}
+@keyframes sweep-corner-bl {
+  0% { transform: translate(0,0) scale(1); }
+ 50% { transform: translate(-45vw,45vh) scale(1.08); }
+100% { transform: translate(0,0) scale(1); }
+}
+@keyframes sweep-corner-br {
+  0% { transform: translate(0,0) scale(1); }
+ 50% { transform: translate(45vw,45vh) scale(1.08); }
+100% { transform: translate(0,0) scale(1); }
+}
+
+/* Behind-curve smaller sweeps: keep movement near bottom area so orbs appear behind the radial glow */
+@keyframes sweep-behind-a {
+  0% { transform: translate(0,0) scale(1); }
+ 50% { transform: translate(-8vw,18vh) scale(1.04); }
+100% { transform: translate(0,0) scale(1); }
+}
+@keyframes sweep-behind-b {
+  0% { transform: translate(0,0) scale(1); }
+ 50% { transform: translate(10vw,22vh) scale(1.05); }
+100% { transform: translate(0,0) scale(1); }
+}
+@keyframes sweep-behind-c {
+  0% { transform: translate(0,0) scale(1); }
+ 50% { transform: translate(-12vw,16vh) scale(1.03); }
+100% { transform: translate(0,0) scale(1); }
 }
 
 @media (prefers-reduced-motion: reduce) {
