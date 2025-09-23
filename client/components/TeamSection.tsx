@@ -7,14 +7,14 @@ interface TeamMemberProps {
 
 function TeamMember({ name, title, image, isPlaceholder = false }: TeamMemberProps) {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center group">
       {/* Image Container */}
-      <div className="w-[235px] h-[331px] rounded-[27px] bg-[#D9D9D9] mb-6 overflow-hidden relative">
+      <div className="w-[235px] h-[331px] rounded-[27px] bg-black mb-6 overflow-hidden relative cursor-pointer">
         {image && !isPlaceholder ? (
           <img 
             src={image} 
             alt={name}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover block transform transition-transform duration-300 ease-out group-hover:scale-105"
           />
         ) : null}
       </div>
@@ -37,7 +37,7 @@ export default function TeamSection() {
     {
       name: "Rusango André Salvator",
       title: "Chief Executive Officer (CEO)",
-      image: "/rusango.jpg",
+      image: "/rusango.jpg?v=1",
       isPlaceholder: false
     },
     {

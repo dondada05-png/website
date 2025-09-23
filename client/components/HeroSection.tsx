@@ -28,43 +28,33 @@ export default function HeroSection() {
             Empowering African creators with monetization, exposure, and community impact.
           </p>
 
-          <div className="relative inline-block">
-            <div className="w-[420px] h-[96px] rounded-[62px] bg-button-gradient shadow-[0_2px_39.1px_0_rgba(43,87,196,0.52)] max-w-full" />
+          <div className="group relative inline-block">
+            <div className="w-[420px] h-[96px] rounded-[62px] bg-button-gradient shadow-[0_2px_39.1px_0_rgba(43,87,196,0.52)] max-w-full transform transition-transform duration-300 ease-out group-hover:scale-[1.04] group-hover:shadow-[0_8px_48px_rgba(43,87,196,0.55)]" />
             <button
               onClick={scrollToContact}
-              className="absolute inset-0 flex items-center justify-center w-full h-full font-roboto font-bold text-white text-[36px] md:text-[30px] sm:text-[24px] leading-[1] hover:scale-[1.04] transition-transform"
+              className="absolute inset-0 flex items-center justify-center w-full h-full font-roboto font-bold text-white text-[36px] md:text-[30px] sm:text-[24px] leading-[1] transition-transform duration-300 ease-out group-hover:scale-[1.04] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-[#2B57C4]"
             >
               Contact Us
             </button>
           </div>
         </div>
 
-        {/* Floating Cursor Elements - positioned relative to center */}
-        <div className="absolute left-[calc(50%-100px)] top-[calc(50%+50px)] hidden xl:block z-10">
+        {/* Floating Cursor Icon */}
+        <div className="group absolute left-[8%] bottom-[22%] z-10">
           <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/e90181f06c149bb876c8c7f576dc06f84c5e4b15?width=400"
-            alt=""
-            className="w-[150px] h-[150px] filter blur-[7px] absolute"
-          />
-          <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/aee360d17c40c8d39012c6ce364f73448152d83c?width=400"
-            alt=""
-            className="w-[150px] h-[150px] absolute top-[-7px]"
+            src="/cursor%202.png"
+            alt="Cursor icon"
+            className="w-[180px] h-[180px] object-contain drop-shadow-[0_10px_28px_rgba(16,124,255,0.45)] transform transition-transform duration-300 ease-out will-change-transform group-hover:scale-105"
           />
         </div>
       </div>
 
-      {/* Floating Message Elements - positioned relative to right side */}
-      <div className="absolute right-[5%] bottom-[15%] hidden xl:block z-10">
+      {/* Floating Message Icon */}
+      <div className="group absolute right-[6%] bottom-[12%] z-10 pointer-events-auto">
         <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/f99de0771edd80840cd7d0461ac9e8cd82395232?width=400"
-          alt=""
-          className="w-[150px] h-[150px] filter blur-[7px] absolute"
-        />
-        <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/acf940d8936d50f1b23c6fe74171c60b3b3d2dcb?width=400"
-          alt=""
-          className="w-[150px] h-[150px] absolute"
+          src="/message%201.png"
+          alt="Message icon"
+          className="w-[200px] h-[200px] object-contain filter drop-shadow-[0_16px_40px_rgba(106,100,255,0.6)] transform transition-transform duration-300 ease-out will-change-transform group-hover:scale-110 hover:scale-110"
         />
       </div>
     </section>
