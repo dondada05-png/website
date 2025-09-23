@@ -24,7 +24,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-  <section id="home" className="relative w-full min-h-screen overflow-hidden">
+  <section id="home" className="relative w-full md:min-h-screen overflow-hidden">
       {/* Background Gradient (covers full section) */}
       <div className="absolute inset-0 bg-hero-gradient" />
 
@@ -42,7 +42,7 @@ export default function HeroSection() {
       </div>
 
       {/* Hero Content */}
-  <div className="hero-content relative z-30 flex flex-col items-center justify-center min-h-screen px-4 py-12 md:py-32 md:min-h-[80vh]">
+  <div className="hero-content relative z-30 flex flex-col items-center justify-center px-4 py-8 md:py-32 md:min-h-[80vh]">
   <div className="text-center mx-auto w-full px-4 md:px-0 max-w-[1100px]">
             <h1 className="font-dm-sans font-bold text-white mb-8 tracking-[-3.6px] leading-[0.9] text-6xl md:text-6xl lg:text-[72px] xl:text-[88px]">
             <span className="block">Africa’s First Streaming</span>
