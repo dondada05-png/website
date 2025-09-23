@@ -1175,6 +1175,22 @@ section#team::after {
   .market-card { transform-origin: center top; }
 }
 
+/* Team member hover color change */
+.group:hover .team-member-title,
+.group:hover .team-member-name,
+.group:focus-within .team-member-title,
+.group:focus-within .team-member-name {
+  color: #2b6df6; /* blue */
+  transition: color 200ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .group:hover .team-member-title,
+  .group:hover .team-member-name,
+  .group:focus-within .team-member-title,
+  .group:focus-within .team-member-name { transition: none !important; }
+}
+
 
 /* Add a subtle blurred overlay for the explore section to create depth */
 .bg-section-gradient::before {

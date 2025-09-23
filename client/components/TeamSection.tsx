@@ -21,10 +21,10 @@ function TeamMember({ name, title, image, isPlaceholder = false }: TeamMemberPro
       
       {/* Team Member Info */}
       <div className="text-center">
-        <div className="font-roboto font-bold text-[22px] leading-[28px] text-white mb-2">
+        <div className="team-member-title font-roboto font-bold text-[22px] leading-[28px] text-white mb-2">
           {title}
         </div>
-        <div className="font-roboto font-bold text-[22px] leading-[28px] text-white">
+        <div className="team-member-name font-roboto font-bold text-[22px] leading-[28px] text-white">
           {name}
         </div>
       </div>
