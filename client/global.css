@@ -1116,6 +1116,31 @@ section#team::after {
   bottom: 0;
 }
 
+/* StroomCoin image subtle idle float + hover lift */
+.stroomcoin-img {
+  display: inline-block;
+  transition: transform 280ms cubic-bezier(.2,.9,.3,1), filter 280ms ease;
+  will-change: transform;
+  animation: stroom-float 6s ease-in-out infinite;
+}
+.stroomcoin-img:hover {
+  transform: translateY(-10px) scale(1.06);
+  filter: drop-shadow(0 18px 28px rgba(0,0,0,0.35));
+}
+.stroomcoin-img:active { transform: translateY(-6px) scale(1.04); }
+
+@keyframes stroom-float {
+  0% { transform: translateY(0) rotate(-0.6deg) scale(1); }
+  25% { transform: translateY(-6px) rotate(0.2deg) scale(1.01); }
+  50% { transform: translateY(0) rotate(0deg) scale(1); }
+  75% { transform: translateY(6px) rotate(-0.2deg) scale(0.995); }
+  100% { transform: translateY(0) rotate(-0.6deg) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stroomcoin-img { animation: none !important; transition: none !important; transform: none !important; }
+}
+
 /* Explore section market card hover animation */
 .market-card {
   transition: transform 260ms cubic-bezier(.2,.9,.3,1), box-shadow 260ms ease, filter 260ms ease;

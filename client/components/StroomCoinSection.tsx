@@ -8,7 +8,7 @@ export default function StroomCoinSection() {
             <img 
               src="https://api.builder.io/api/v1/image/assets/TEMP/99577c2ade4666dfcf8b10201e2f27d8c87e0dfe?width=336" 
               alt="StroomCoin Logo" 
-              className="w-[168px] h-[168px] aspect-square"
+              className="stroomcoin-img w-[168px] h-[168px] aspect-square"
             />
           </div>
           
