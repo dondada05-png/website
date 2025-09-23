@@ -1191,6 +1191,50 @@ section#team::after {
   .group:focus-within .team-member-name { transition: none !important; }
 }
 
+/* Contact form inputs focus styles */
+.contact-input, .contact-textarea {
+  transition: box-shadow 220ms ease, transform 220ms cubic-bezier(.2,.9,.3,1);
+}
+.contact-input:focus-within, .contact-textarea:focus-within {
+  box-shadow: 0 10px 30px rgba(4,16,50,0.45);
+  transform: translateY(-3px);
+}
+
+/* Animated send button with sheen */
+.btn-animated {
+  position: relative;
+  border-radius: 19px;
+  background: linear-gradient(90deg, #5A03DF 0%, #8A3BFF 100%);
+  overflow: hidden;
+  transition: transform 220ms cubic-bezier(.2,.9,.3,1), box-shadow 220ms ease;
+  will-change: transform;
+}
+.btn-animated::before {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -40%;
+  width: 40%;
+  height: 220%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.18) 50%, rgba(255,255,255,0.0) 100%);
+  transform: rotate(25deg);
+  transition: transform 550ms cubic-bezier(.2,.9,.3,1), opacity 220ms ease;
+  opacity: 0.0;
+}
+.btn-animated:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 18px 36px rgba(90,3,223,0.18), 0 8px 18px rgba(0,0,0,0.35);
+}
+.btn-animated:hover::before {
+  transform: translateX(220%) rotate(25deg);
+  opacity: 1;
+}
+.btn-animated:active { transform: translateY(-3px) scale(1.02); }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-animated, .btn-animated::before { transition: none !important; transform: none !important; }
+}
+
 
 /* Add a subtle blurred overlay for the explore section to create depth */
 .bg-section-gradient::before {

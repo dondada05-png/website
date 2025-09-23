@@ -38,7 +38,7 @@ export default function ContactSection() {
           <div className="relative z-10">
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-[503px]">
               {/* Name Input */}
-              <div className="flex items-center gap-2 w-[479px] h-[42px] px-3 py-2 rounded-[10px] bg-white/20">
+              <div className="contact-input flex items-center gap-2 w-[479px] h-[42px] px-3 py-2 rounded-[10px] bg-white/20">
                 <input
                   type="text"
                   name="name"
@@ -50,7 +50,7 @@ export default function ContactSection() {
               </div>
               
               {/* Email Input */}
-              <div className="flex items-center gap-2 w-[479px] h-[42px] px-3 py-2 rounded-[10px] bg-white/20">
+              <div className="contact-input flex items-center gap-2 w-[479px] h-[42px] px-3 py-2 rounded-[10px] bg-white/20">
                 <input
                   type="email"
                   name="email"
@@ -62,7 +62,7 @@ export default function ContactSection() {
               </div>
               
               {/* Message Textarea */}
-              <div className="flex items-start gap-2 w-[487px] h-[178px] px-3 py-2 rounded-[15px] bg-white/20">
+              <div className="contact-textarea flex items-start gap-2 w-[487px] h-[178px] px-3 py-2 rounded-[15px] bg-white/20">
                 <textarea
                   name="message"
                   placeholder="Enter your message"
@@ -78,7 +78,7 @@ export default function ContactSection() {
                   <div className="w-[145px] h-[47px] rounded-[19px] bg-send-button-gradient shadow-[0_3px_26px_0_rgba(255,255,255,0.25)]" />
                   <button 
                     type="submit"
-                    className="absolute inset-0 flex items-center justify-center w-[145px] h-[47px] font-roboto font-normal text-[24px] leading-[32px] text-white hover:scale-105 transition-transform"
+                    className="btn-animated absolute inset-0 flex items-center justify-center w-[145px] h-[47px] font-roboto font-normal text-[24px] leading-[32px] text-white"
                   >
                     Send
                   </button>
