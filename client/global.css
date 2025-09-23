@@ -1284,6 +1284,26 @@ section#team::after {
   .btn-animated, .btn-animated::before { transition: none !important; transform: none !important; }
 }
 
+/* Mobile-first: make CTA buttons larger and more tappable on small screens
+   Keeps md+ sizes intact via media query (we only target max-width: 767px) */
+@media (max-width: 767px) {
+  .btn-animated {
+    padding: 18px 40px !important;
+    min-width: 220px !important;
+    height: 64px !important;
+    font-size: 1.5rem !important; /* 24px */
+    border-radius: 48px;
+  }
+
+  /* slightly adjust sheen start so it still looks centered on larger pill */
+  .btn-animated::before {
+    top: -50%;
+    left: -30%;
+    width: 36%;
+    height: 220%;
+  }
+}
+
 
 /* Add a subtle blurred overlay for the explore section to create depth */
 .bg-section-gradient::before {
