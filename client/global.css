@@ -1031,7 +1031,7 @@ section#stroomcoin::after {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: linear-gradient(180deg, #000 0%, rgba(93, 44, 168, 0.95) 45%, rgba(93,44,168,0.95) 60%, #000 100%);
+  background: linear-gradient(180deg, #000 0%, rgba(93, 44, 168, 0.95) 45%, rgba(93,44,168,0.95) 60%);
   filter: blur(40px);
   opacity: 0.95;
 }
@@ -1041,6 +1041,34 @@ section#stroomcoin::after {
 }
 @media (max-width: 640px) {
   section#stroomcoin::after { filter: blur(18px); opacity: 0.92; }
+}
+
+
+/* Make StroomCoin and Team appear as a single continuous section */
+section#stroomcoin,
+section#team {
+  /* Use the requested purple color as a solid fallback/background */
+  background-color: rgb(90 3 223 / var(--tw-text-opacity, 1)) !important;
+  /* Remove any default background-image so our color shows consistently */
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+}
+
+/* Remove any top/bottom spacing that could create a visible seam */
+section#stroomcoin { padding-bottom: 0 !important; }
+section#team { padding-top: 0 !important; }
+
+/* Ensure the team/stroomcoin overlays are aligned and sit behind content */
+section#stroomcoin::after,
+section#team::after {
+  inset: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
 
 
