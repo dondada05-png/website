@@ -22,7 +22,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative w-full bg-black py-20">
+    <section id="contact" className="relative w-full bg-black pt-[50px] pb-20">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="flex flex-col items-center relative">
           {/* Section Title */}
