@@ -992,6 +992,28 @@ section#team::before {
   filter: blur(48px) !important;
 }
 
+/* Hide the global blurred layer for the Team section to avoid double-stacking
+   and inject a team-specific blurred gradient so the purple tint is visible. */
+main > section#team::before { display: none !important; }
+
+section#team::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(180deg, #000 0%, rgba(93, 44, 168, 0.95) 45%, rgba(93,44,168,0.85) 60%, #000 100%);
+  filter: blur(40px);
+  opacity: 0.95;
+}
+
+@media (max-width: 1024px) {
+  section#team::after { filter: blur(28px); opacity: 0.94; }
+}
+@media (max-width: 640px) {
+  section#team::after { filter: blur(18px); opacity: 0.92; }
+}
+
 
 /* Add a subtle blurred overlay for the explore section to create depth */
 .bg-section-gradient::before {
