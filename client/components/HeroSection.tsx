@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 export default function HeroSection() {
   const scrollToContact = () => {
     const element = document.getElementById('contact');
@@ -5,6 +7,21 @@ export default function HeroSection() {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  useEffect(() => {
+    // Randomize start phase of each glowing orb so animations are less repetitive
+    for (let i = 1; i <= 7; i++) {
+      const el = document.querySelector(`.glow-${i}`) as HTMLElement | null;
+      if (el) {
+        // random negative delay between -0s and -12s
+        const delay = -(Math.random() * 12).toFixed(2) + 's';
+        el.style.setProperty('--orb-delay', delay);
+        // apply it to both animation-delay and -webkit-animation-delay (fallback)
+        el.style.animationDelay = delay;
+        (el.style as any)['-webkit-animation-delay'] = delay;
+      }
+    }
+  }, []);
 
   return (
     <section id="home" className="relative w-full h-screen overflow-hidden">

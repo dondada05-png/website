@@ -595,6 +595,61 @@ html, body {
 100% { transform: translate(0,0) scale(1); }
 }
 
+/* Behind-curve visual treatment: sit under the radial glow and slightly dimmed */
+.glow-4, .glow-5, .glow-6 {
+  z-index: -1; /* behind the radial circle (which is z-index:0) */
+  opacity: 0.45; /* dimmed so they sit subtly behind the curve */
+  filter: blur(2px);
+}
+
+/* Mobile-safe (clamped) sweep animations — reduce travel so orbs don't exit small viewports */
+@keyframes sweep-corner-tl-mobile {
+  0% { transform: translate(0,0) scale(1); }
+ 50% { transform: translate(-22vw,-22vh) scale(1.06); }
+100% { transform: translate(0,0) scale(1); }
+}
+@keyframes sweep-corner-tr-mobile {
+  0% { transform: translate(0,0) scale(1); }
+ 50% { transform: translate(22vw,-22vh) scale(1.06); }
+100% { transform: translate(0,0) scale(1); }
+}
+@keyframes sweep-corner-bl-mobile {
+  0% { transform: translate(0,0) scale(1); }
+ 50% { transform: translate(-22vw,22vh) scale(1.06); }
+100% { transform: translate(0,0) scale(1); }
+}
+@keyframes sweep-corner-br-mobile {
+  0% { transform: translate(0,0) scale(1); }
+ 50% { transform: translate(22vw,22vh) scale(1.06); }
+100% { transform: translate(0,0) scale(1); }
+}
+
+@keyframes sweep-behind-a-mobile {
+  0% { transform: translate(0,0) scale(1); }
+ 50% { transform: translate(-6vw,10vh) scale(1.03); }
+100% { transform: translate(0,0) scale(1); }
+}
+@keyframes sweep-behind-b-mobile {
+  0% { transform: translate(0,0) scale(1); }
+ 50% { transform: translate(8vw,12vh) scale(1.03); }
+100% { transform: translate(0,0) scale(1); }
+}
+@keyframes sweep-behind-c-mobile {
+  0% { transform: translate(0,0) scale(1); }
+ 50% { transform: translate(-8vw,9vh) scale(1.02); }
+100% { transform: translate(0,0) scale(1); }
+}
+
+@media (max-width: 640px) {
+  .glow-1 { animation-name: sweep-corner-tl-mobile !important; }
+  .glow-2 { animation-name: sweep-corner-tr-mobile !important; }
+  .glow-3 { animation-name: sweep-corner-bl-mobile !important; }
+  .glow-7 { animation-name: sweep-corner-br-mobile !important; }
+  .glow-4 { animation-name: sweep-behind-a-mobile !important; }
+  .glow-5 { animation-name: sweep-behind-b-mobile !important; }
+  .glow-6 { animation-name: sweep-behind-c-mobile !important; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .glowing-ball, .glow-1, .glow-2, .glow-3, .glow-4, .glow-5, .glow-6, .glow-7 {
     animation: none !important;
