@@ -7,6 +7,7 @@ interface NavigationProps {
 export default function Navigation({ activeSection }: NavigationProps) {
   const [imgError, setImgError] = useState(false);
   const [activeId, setActiveId] = useState<string | undefined>(activeSection ?? 'home');
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -95,6 +96,29 @@ export default function Navigation({ activeSection }: NavigationProps) {
             </button>
           </div>
 
+          {/* Mobile hamburger - visible on small screens */}
+          <div className="sm:hidden ml-3">
+            <button
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileOpen ? true : false}
+              onClick={() => setMobileOpen((s) => !s)}
+              className="p-2 rounded-md bg-white/5 text-white"
+            >
+              {/* simple hamburger / close icon */}
+              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                {mobileOpen ? (
+                  <path d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <>
+                    <path d="M3 12h18" />
+                    <path d="M3 6h18" />
+                    <path d="M3 18h18" />
+                  </>
+                )}
+              </svg>
+            </button>
+          </div>
+
           {/* Center links - evenly distributed across available space */}
           <div className="flex-1 flex justify-center">
             <div className="hidden sm:flex items-center justify-evenly w-full max-w-2xl whitespace-nowrap">
@@ -133,6 +157,26 @@ export default function Navigation({ activeSection }: NavigationProps) {
             ) : null}
           </div>
         </div>
+        {/* Mobile menu dropdown */}
+        {mobileOpen && (
+          <div className="sm:hidden absolute left-0 right-0 top-full bg-[#000000] border-t border-white/5 z-40">
+            <div className="px-4 py-3 flex flex-col gap-2">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    setActiveId(item.id);
+                    setMobileOpen(false);
+                    scrollToSection(item.id);
+                  }}
+                  className={`w-full text-left text-white font-medium py-2 px-2 rounded hover:bg-white/5 ${activeId === item.id ? 'bg-white/3' : ''}`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
