@@ -499,60 +499,60 @@ html, body {
 }
 
 /* Variants: create 7 subtly different glowing balls across the hero */
-.glow-1 { left: calc(50% - 60px); top: calc(42% - 60px); width: 120px; height: 120px; opacity: .95; }
-.glow-2 { left: 18%; top: 52%; width: 90px; height: 90px; opacity: .85; transform: translateX(-10%); }
-.glow-3 { left: 82%; top: 48%; width: 100px; height: 100px; opacity: .78; transform: translateX(10%); }
-.glow-4 { left: 30%; top: 30%; width: 70px; height: 70px; opacity: .65; }
-.glow-5 { left: 70%; top: 28%; width: 85px; height: 85px; opacity: .6; }
-.glow-6 { left: 10%; top: 18%; width: 60px; height: 60px; opacity: .55; }
-.glow-7 { left: 90%; top: 12%; width: 50px; height: 50px; opacity: .5; }
+.glow-1 { left: calc(50% - 60px); top: 72%; width: 120px; height: 120px; opacity: .95; }
+.glow-2 { left: 18%; top: 80%; width: 90px; height: 90px; opacity: .85; transform: translateX(-10%); }
+.glow-3 { left: 82%; top: 18%; width: 100px; height: 100px; opacity: .78; transform: translateX(10%); }
+.glow-4 { left: 30%; top: 8%; width: 70px; height: 70px; opacity: .65; }
+.glow-5 { left: 70%; top: 68%; width: 85px; height: 85px; opacity: .6; }
+.glow-6 { left: 10%; top: 15%; width: 60px; height: 60px; opacity: .55; }
+.glow-7 { left: 90%; top: 5%; width: 50px; height: 50px; opacity: .5; }
 
 /* subtle floating animation for each glow (different durations to avoid sync) */
 .glowing-ball { will-change: transform; }
 
 /* Directional animations: some orbs move left->right, others right->left, up->down, down->up, and diagonals */
-.glow-1 { animation: glow-lr 9s ease-in-out infinite alternate; } /* left -> right */
-.glow-2 { animation: glow-rl 12s ease-in-out infinite alternate; } /* right -> left */
-.glow-3 { animation: glow-ud 10s ease-in-out infinite alternate; } /* up -> down */
-.glow-4 { animation: glow-du 14s ease-in-out infinite alternate; } /* down -> up */
-.glow-5 { animation: glow-diag-a 11s ease-in-out infinite alternate; } /* diag left-up -> right-down */
-.glow-6 { animation: glow-diag-b 13s ease-in-out infinite alternate; } /* diag right-up -> left-down */
-.glow-7 { animation: glow-lr-small 16s ease-in-out infinite alternate; } /* subtle left->right */
+.glow-1 { animation: sweep-1 14s ease-in-out infinite alternate; }
+.glow-2 { animation: sweep-2 16s ease-in-out infinite alternate; }
+.glow-3 { animation: sweep-3 12s ease-in-out infinite alternate; }
+.glow-4 { animation: sweep-4 18s ease-in-out infinite alternate; }
+.glow-5 { animation: sweep-5 15s ease-in-out infinite alternate; }
+.glow-6 { animation: sweep-6 13s ease-in-out infinite alternate; }
+.glow-7 { animation: sweep-7 20s ease-in-out infinite alternate; }
 
-@keyframes glow-lr {
-  0% { transform: translateX(-64px) scale(1); }
-  50% { transform: translateX(64px) scale(1.03); }
- 100% { transform: translateX(-64px) scale(1); }
+@keyframes sweep-1 {
+  0% { transform: translate(-30vw,-18vh) scale(1); }
+ 50% { transform: translate(30vw,18vh) scale(1.06); }
+100% { transform: translate(-30vw,-18vh) scale(1); }
 }
-@keyframes glow-rl {
-  0% { transform: translateX(64px) scale(1); }
-  50% { transform: translateX(-64px) scale(1.03); }
- 100% { transform: translateX(64px) scale(1); }
+@keyframes sweep-2 {
+  0% { transform: translate(28vw,20vh) scale(1); }
+ 50% { transform: translate(-28vw,-20vh) scale(1.05); }
+100% { transform: translate(28vw,20vh) scale(1); }
 }
-@keyframes glow-ud {
-  0% { transform: translateY(-56px) scale(1); }
-  50% { transform: translateY(56px) scale(1.03); }
- 100% { transform: translateY(-56px) scale(1); }
+@keyframes sweep-3 {
+  0% { transform: translate(-22vw,-12vh) scale(1); }
+ 50% { transform: translate(22vw,12vh) scale(1.04); }
+100% { transform: translate(-22vw,-12vh) scale(1); }
 }
-@keyframes glow-du {
-  0% { transform: translateY(56px) scale(1); }
-  50% { transform: translateY(-56px) scale(1.03); }
- 100% { transform: translateY(56px) scale(1); }
+@keyframes sweep-4 {
+  0% { transform: translate(34vw,-10vh) scale(1); }
+ 50% { transform: translate(-34vw,10vh) scale(1.07); }
+100% { transform: translate(34vw,-10vh) scale(1); }
 }
-@keyframes glow-diag-a {
-  0% { transform: translate(-64px,-40px) scale(1); }
-  50% { transform: translate(64px,40px) scale(1.035); }
- 100% { transform: translate(-64px,-40px) scale(1); }
+@keyframes sweep-5 {
+  0% { transform: translate(-26vw,22vh) scale(1); }
+ 50% { transform: translate(26vw,-22vh) scale(1.05); }
+100% { transform: translate(-26vw,22vh) scale(1); }
 }
-@keyframes glow-diag-b {
-  0% { transform: translate(64px,-40px) scale(1); }
-  50% { transform: translate(-64px,40px) scale(1.035); }
- 100% { transform: translate(64px,-40px) scale(1); }
+@keyframes sweep-6 {
+  0% { transform: translate(20vw,-16vh) scale(1); }
+ 50% { transform: translate(-20vw,16vh) scale(1.04); }
+100% { transform: translate(20vw,-16vh) scale(1); }
 }
-@keyframes glow-lr-small {
-  0% { transform: translateX(-48px) scale(1); }
-  50% { transform: translateX(48px) scale(1.02); }
- 100% { transform: translateX(-48px) scale(1); }
+@keyframes sweep-7 {
+  0% { transform: translate(-18vw,-24vh) scale(1); }
+ 50% { transform: translate(18vw,24vh) scale(1.06); }
+100% { transform: translate(-18vw,-24vh) scale(1); }
 }
 
 @media (prefers-reduced-motion: reduce) {
