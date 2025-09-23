@@ -47,7 +47,7 @@ export default function ExploreSection() {
   ];
 
   return (
-    <section id="explore" className="relative w-full bg-black py-20">
+    <section id="explore" className="relative w-full bg-black py-20 scroll-mt-[72px]">
       {/* Section Gradient Background */}
       <div className="absolute inset-0 bg-section-gradient" />
       

@@ -15,21 +15,24 @@ export default function HeroSection() {
       <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/4 w-[1200px] h-[600px] rounded-full border border-[#017DFF] bg-radial-circle opacity-80 z-0" />
 
       {/* Hero Content */}
-      <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 pt-20">
-        <div className="text-center max-w-[880px] mx-auto">
-          <h1 className="font-dm-sans font-bold text-[90px] leading-[80px] tracking-[-3.6px] text-white mb-8 xl:text-[90px] lg:text-[70px] md:text-[60px] sm:text-[45px] xs:text-[35px]">
-            Africa's First Streaming and Social Platform, Powered by StroomCoin
+      <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 pt-24">
+        <div className="text-center mx-auto max-w-[1100px]">
+          <h1 className="font-dm-sans font-bold text-white mb-8 tracking-[-3.6px] leading-[0.9] text-[88px] xl:text-[88px] lg:text-[72px] md:text-[56px] sm:text-[42px] xs:text-[34px]">
+            <span className="block">Africa’s First Streaming</span>
+            <span className="block">and Social Platform,</span>
+            <span className="block">Powered by</span>
+            <span className="block">StroomCoin</span>
           </h1>
 
-          <p className="font-inter font-normal text-[22px] leading-[31px] tracking-[-0.792px] text-white mb-12 max-w-[457px] mx-auto lg:text-[22px] md:text-[20px] sm:text-[18px]">
+          <p className="font-inter font-normal text-white/95 mb-12 mx-auto max-w-[560px] text-[22px] md:text-[20px] sm:text-[18px] leading-[1.45] tracking-[-0.3px]">
             Empowering African creators with monetization, exposure, and community impact.
           </p>
 
           <div className="relative inline-block">
-            <div className="w-[409px] h-[94px] rounded-[62px] bg-button-gradient shadow-[0_2px_39.1px_0_rgba(43,87,196,0.52)] max-w-full" />
+            <div className="w-[420px] h-[96px] rounded-[62px] bg-button-gradient shadow-[0_2px_39.1px_0_rgba(43,87,196,0.52)] max-w-full" />
             <button
               onClick={scrollToContact}
-              className="absolute inset-0 flex items-center justify-center w-full h-full font-roboto font-bold text-[36px] leading-[52px] text-white hover:scale-105 transition-transform md:text-[30px] sm:text-[24px]"
+              className="absolute inset-0 flex items-center justify-center w-full h-full font-roboto font-bold text-white text-[36px] md:text-[30px] sm:text-[24px] leading-[1] hover:scale-[1.04] transition-transform"
             >
               Contact Us
             </button>
