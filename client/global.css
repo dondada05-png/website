@@ -1116,6 +1116,39 @@ section#team::after {
   bottom: 0;
 }
 
+/* Explore section market card hover animation */
+.market-card {
+  transition: transform 260ms cubic-bezier(.2,.9,.3,1), box-shadow 260ms ease, filter 260ms ease;
+  will-change: transform, box-shadow;
+  transform-origin: center;
+}
+.market-card:hover,
+.market-card:focus-within {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(4,16,50,0.45), 0 6px 14px rgba(0,0,0,0.35);
+  filter: saturate(1.06) contrast(1.02);
+}
+.market-card:active {
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* Accessible preference: disable motion for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .market-card,
+  .market-card:hover,
+  .market-card:focus-within,
+  .market-card:active {
+    transition: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .market-card { transform-origin: center top; }
+}
+
 
 /* Add a subtle blurred overlay for the explore section to create depth */
 .bg-section-gradient::before {

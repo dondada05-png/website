@@ -6,7 +6,7 @@ interface MarketCardProps {
 
 function MarketCard({ value, description, color }: MarketCardProps) {
   return (
-    <div className="flex flex-col items-center justify-center gap-6 w-full max-w-[360px] p-10 rounded-[10px] border border-white/20 bg-[#0D0D0D]">
+    <div className="market-card flex flex-col items-center justify-center gap-6 w-full max-w-[360px] p-10 rounded-[10px] border border-white/20 bg-[#0D0D0D]">
       {/* Icon Container */}
       <div className="flex items-center justify-center p-[18px] rounded-[10px] bg-white">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
