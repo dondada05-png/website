@@ -56,10 +56,11 @@ export default function HeroSection() {
           </p>
 
           <div className="group relative inline-block">
-            <div className="w-auto px-6 py-3 rounded-[62px] bg-button-gradient shadow-[0_4px_40px_rgba(43,87,196,0.2)] transform transition-transform duration-300 ease-out group-hover:scale-105 group-hover:shadow-[0_8px_48px_rgba(43,87,196,0.35)]" />
+            {/* background pill: fixed large size on md+ to match original design, responsive on small screens */}
+            <div className="md:w-[420px] md:h-[96px] w-auto px-6 py-3 rounded-[62px] bg-button-gradient shadow-[0_4px_40px_rgba(43,87,196,0.2)] transform transition-transform duration-300 ease-out group-hover:scale-105 group-hover:shadow-[0_8px_48px_rgba(43,87,196,0.35)]" />
             <button
               onClick={scrollToContact}
-              className="btn-animated absolute inset-0 flex items-center justify-center px-6 py-3 font-roboto font-bold text-white text-lg md:text-xl leading-[1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-[#2B57C4]"
+              className="btn-animated absolute inset-0 flex items-center justify-center px-6 py-3 md:px-0 md:py-0 font-roboto font-bold text-white text-lg md:text-[36px] leading-[1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-[#2B57C4]"
             >
               Contact Us
             </button>
