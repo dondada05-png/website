@@ -43,7 +43,7 @@ export default function HeroSection() {
 
       {/* Hero Content */}
       <div className="hero-content relative z-30 flex flex-col items-center justify-center min-h-[80vh] px-4 pt-24">
-    <div className="text-center mx-auto max-w-4xl w-full px-4">
+  <div className="text-center mx-auto w-full px-4 md:px-0 max-w-[1100px]">
       <h1 className="font-dm-sans font-bold text-white mb-8 tracking-[-3.6px] leading-[0.9] text-5xl md:text-6xl lg:text-[72px] xl:text-[88px]">
             <span className="block">Africa’s First Streaming</span>
             <span className="block">and Social Platform,</span>
@@ -68,21 +68,21 @@ export default function HeroSection() {
         </div>
 
         {/* Floating Cursor Icon */}
-  <div className="group absolute left-8 bottom-1/4 z-10 hidden lg:block">
+        <div className="group absolute left-[8%] bottom-[22%] z-10 hidden md:block">
           <img
             src="/cursor%202.png"
             alt="Cursor icon"
-            className="w-36 h-36 md:w-44 md:h-44 object-contain drop-shadow-[0_10px_28px_rgba(16,124,255,0.45)] transform transition-transform duration-300 ease-out will-change-transform group-hover:scale-105"
+            className="w-36 h-36 md:w-[180px] md:h-[180px] object-contain drop-shadow-[0_10px_28px_rgba(16,124,255,0.45)] transform transition-transform duration-300 ease-out will-change-transform group-hover:scale-105"
           />
         </div>
       </div>
 
       {/* Floating Message Icon */}
-  <div className="group absolute right-6 bottom-12 z-10 pointer-events-auto hidden lg:block">
+  <div className="group absolute right-[6%] bottom-[12%] z-10 pointer-events-auto hidden md:block">
         <img
           src="/message%201.png"
           alt="Message icon"
-          className="w-44 h-44 md:w-48 md:h-48 object-contain filter drop-shadow-[0_16px_40px_rgba(106,100,255,0.6)] transform transition-transform duration-300 ease-out will-change-transform group-hover:scale-110 hover:scale-110"
+          className="w-44 h-44 md:w-[200px] md:h-[200px] object-contain filter drop-shadow-[0_16px_40px_rgba(106,100,255,0.6)] transform transition-transform duration-300 ease-out will-change-transform group-hover:scale-110 hover:scale-110"
         />
       </div>
     </section>
