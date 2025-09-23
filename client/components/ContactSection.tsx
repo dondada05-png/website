@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useToast } from '../hooks/use-toast';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -6,6 +7,8 @@ export default function ContactSection() {
     email: '',
     message: ''
   });
+
+  const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -18,7 +21,25 @@ export default function ContactSection() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission here
-    console.log('Form submitted:', formData);
+    (async () => {
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+        });
+
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({}));
+          throw new Error(data?.error || 'Failed to send message');
+        }
+
+  toast({ title: 'Message sent', description: 'Thanks — we will get back to you shortly', type: 'foreground' });
+        setFormData({ name: '', email: '', message: '' });
+      } catch (err: any) {
+  toast({ title: 'Send failed', description: err?.message || 'Unable to send message', type: 'background' });
+      }
+    })();
   };
 
   return (
