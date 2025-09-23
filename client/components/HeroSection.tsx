@@ -42,7 +42,7 @@ export default function HeroSection() {
       </div>
 
       {/* Hero Content */}
-  <div className="hero-content relative z-30 flex flex-col items-center justify-center md:min-h-[80vh] px-4 pt-12 md:pt-24">
+  <div className="hero-content relative z-30 flex flex-col items-center justify-center min-h-screen px-4 py-12 md:py-32 md:min-h-[80vh]">
   <div className="text-center mx-auto w-full px-4 md:px-0 max-w-[1100px]">
             <h1 className="font-dm-sans font-bold text-white mb-8 tracking-[-3.6px] leading-[0.9] text-6xl md:text-6xl lg:text-[72px] xl:text-[88px]">
             <span className="block">Africa’s First Streaming</span>
@@ -56,11 +56,11 @@ export default function HeroSection() {
           </p>
 
           <div className="group relative inline-flex justify-center">
-            {/* background pill: fixed large size on md+ to match original design, responsive on small screens */}
-            <div className="md:w-[420px] md:h-[96px] w-full max-w-xs sm:max-w-md px-6 py-3 rounded-[62px] bg-button-gradient shadow-[0_4px_40px_rgba(43,87,196,0.2)] transform transition-transform duration-300 ease-out group-hover:scale-105 group-hover:shadow-[0_8px_48px_rgba(43,87,196,0.35)]" />
+            {/* background pill: keep md+ exact sizes, make mobile pill a bit larger for visibility */}
+            <div className="md:w-[480px] md:h-[112px] w-full max-w-lg px-10 py-6 md:px-0 md:py-0 rounded-[72px] bg-button-gradient shadow-[0_6px_48px_rgba(43,87,196,0.22)] transform transition-transform duration-300 ease-out group-hover:scale-105 group-hover:shadow-[0_10px_56px_rgba(43,87,196,0.38)]" />
             <button
               onClick={scrollToContact}
-              className="btn-animated absolute inset-0 flex items-center justify-center px-6 py-3 md:px-0 md:py-0 font-roboto font-bold text-white text-lg md:text-[36px] leading-[1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-[#2B57C4] z-40"
+              className="btn-animated absolute inset-0 flex items-center justify-center font-roboto font-bold text-white text-2xl md:text-[40px] leading-[1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-[#2B57C4]"
             >
               Contact Us
             </button>
