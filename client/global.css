@@ -891,6 +891,11 @@ html, body {
   z-index: 0;
 }
 
+/* Force the explore section itself to a solid black background to avoid any inheritance/utility conflicts */
+section#explore {
+  background-color: #000000 !important;
+}
+
 /* Add a subtle blurred overlay for the explore section to create depth */
 .bg-section-gradient::before {
   content: '';
