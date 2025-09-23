@@ -474,7 +474,7 @@ html, body {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  z-index: 10; /* sits above the radial horizon but below content (content uses z-30) */
+  z-index: -1; /* sit behind the radial horizon (radial is z-index:0); hero-content remains above */
   pointer-events: none;
   opacity: 0.95;
   box-shadow:
@@ -597,7 +597,6 @@ html, body {
 
 /* Behind-curve visual treatment: sit under the radial glow and slightly dimmed */
 .glow-4, .glow-5, .glow-6 {
-  z-index: -1; /* behind the radial circle (which is z-index:0) */
   opacity: 0.45; /* dimmed so they sit subtly behind the curve */
   filter: blur(2px);
 }
