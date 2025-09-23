@@ -1002,7 +1002,7 @@ section#team::after {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: linear-gradient(180deg, #000 0%, rgba(93, 44, 168, 0.95) 45%, rgba(93,44,168,0.85) 60%, #000 100%);
+  background: linear-gradient(180deg, #000 0%, rgba(93, 44, 168, 0.95) 45%, rgba(93,44,168,0.95) 60%, #000 100%);
   filter: blur(40px);
   opacity: 0.95;
 }
@@ -1012,6 +1012,35 @@ section#team::after {
 }
 @media (max-width: 640px) {
   section#team::after { filter: blur(18px); opacity: 0.92; }
+}
+
+/* Apply the same purple/black blurred gradient overlay to the StroomCoin section */
+section#stroomcoin {
+  background-image: linear-gradient(180deg, #000 0%, rgba(93, 44, 168, 0.85) 57.83%, #000 100%) !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+main > section#stroomcoin::before,
+section#stroomcoin::before { display: none !important; }
+
+section#stroomcoin::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(180deg, #000 0%, rgba(93, 44, 168, 0.95) 45%, rgba(93,44,168,0.95) 60%, #000 100%);
+  filter: blur(40px);
+  opacity: 0.95;
+}
+
+@media (max-width: 1024px) {
+  section#stroomcoin::after { filter: blur(28px); opacity: 0.94; }
+}
+@media (max-width: 640px) {
+  section#stroomcoin::after { filter: blur(18px); opacity: 0.92; }
 }
 
 
