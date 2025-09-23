@@ -9,6 +9,7 @@ export default function ContactSection() {
   });
 
   const { toast } = useToast();
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -18,28 +19,44 @@ export default function ContactSection() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    (async () => {
-      try {
-        const res = await fetch('/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData),
-        });
 
-        if (!res.ok) {
-          const data = await res.json().catch(() => ({}));
-          throw new Error(data?.error || 'Failed to send message');
-        }
+    // Basic client-side validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.name.trim()) {
+      toast({ title: 'Missing name', description: 'Please enter your name', type: 'background' });
+      return;
+    }
+    if (!emailRegex.test(formData.email)) {
+      toast({ title: 'Invalid email', description: 'Please enter a valid email address', type: 'background' });
+      return;
+    }
+    if (!formData.message.trim() || formData.message.trim().length < 5) {
+      toast({ title: 'Message too short', description: 'Please provide a more detailed message', type: 'background' });
+      return;
+    }
 
-  toast({ title: 'Message sent', description: 'Thanks — we will get back to you shortly', type: 'foreground' });
-        setFormData({ name: '', email: '', message: '' });
-      } catch (err: any) {
-  toast({ title: 'Send failed', description: err?.message || 'Unable to send message', type: 'background' });
+    setLoading(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data?.error || 'Failed to send message');
       }
-    })();
+
+      toast({ title: 'Message sent', description: 'Thanks — we will get back to you shortly', type: 'foreground' });
+      setFormData({ name: '', email: '', message: '' });
+    } catch (err: any) {
+      toast({ title: 'Send failed', description: err?.message || 'Unable to send message', type: 'background' });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -108,10 +125,11 @@ export default function ContactSection() {
                 <div>
                   <button
                     type="submit"
-                    aria-label="Send message"
-                    className="btn-animated inline-flex items-center justify-center px-5 py-3 min-w-[120px] rounded-lg bg-send-button-gradient shadow-[0_6px_30px_0_rgba(124,58,237,0.18)] font-roboto font-medium text-base md:text-lg text-white whitespace-nowrap"
+                    aria-label={loading ? 'Sending message' : 'Send message'}
+                    disabled={loading}
+                    className={`btn-animated inline-flex items-center justify-center px-5 py-3 min-w-[120px] rounded-lg bg-send-button-gradient shadow-[0_6px_30px_0_rgba(124,58,237,0.18)] font-roboto font-medium text-base md:text-lg text-white whitespace-nowrap ${loading ? 'opacity-60 cursor-wait' : ''}`}
                   >
-                    <span className="leading-tight">Send message</span>
+                    <span className="leading-tight">{loading ? 'Sending...' : 'Send message'}</span>
                   </button>
                 </div>
               </div>
