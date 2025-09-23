@@ -512,13 +512,13 @@ html, body {
 
 /* Directional animations: some orbs move left->right, others right->left, up->down, down->up, and diagonals */
 /* Some orbs will sweep out to the viewport corners, others will linger and move behind the radial curve (bottom area) */
-.glow-1 { animation: sweep-corner-tl 18s ease-in-out infinite alternate; } /* top-left corner */
-.glow-2 { animation: sweep-corner-tr 16s ease-in-out infinite alternate; } /* top-right corner */
-.glow-3 { animation: sweep-corner-bl 14s ease-in-out infinite alternate; } /* bottom-left corner */
-.glow-4 { animation: sweep-behind-a 20s ease-in-out infinite alternate; } /* behind curve (bottom center) */
-.glow-5 { animation: sweep-behind-b 16s ease-in-out infinite alternate; } /* behind curve (lower-left) */
-.glow-6 { animation: sweep-behind-c 18s ease-in-out infinite alternate; } /* behind curve (lower-right) */
-.glow-7 { animation: sweep-corner-br 22s ease-in-out infinite alternate; } /* bottom-right corner */
+.glow-1 { animation: sweep-corner-tl 28s ease-in-out infinite alternate; } /* top-left corner */
+.glow-2 { animation: sweep-corner-tr 24s ease-in-out infinite alternate; } /* top-right corner */
+.glow-3 { animation: sweep-corner-bl 22s ease-in-out infinite alternate; } /* bottom-left corner */
+.glow-4 { animation: sweep-behind-a 30s ease-in-out infinite alternate; } /* behind curve (bottom center) */
+.glow-5 { animation: sweep-behind-b 24s ease-in-out infinite alternate; } /* behind curve (lower-left) */
+.glow-6 { animation: sweep-behind-c 26s ease-in-out infinite alternate; } /* behind curve (lower-right) */
+.glow-7 { animation: sweep-corner-br 32s ease-in-out infinite alternate; } /* bottom-right corner */
 
 @keyframes sweep-1 {
   0% { transform: translate(-30vw,-18vh) scale(1); }
