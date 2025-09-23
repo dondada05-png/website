@@ -12,7 +12,9 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-hero-gradient" />
 
       {/* Large Background Circle implemented via bg-radial-circle class */}
-      <div className="bg-radial-circle" />
+  <div className="bg-radial-circle" />
+  {/* Additional centered glowing ball */}
+  <div className="glowing-ball" />
 
       {/* Hero Content */}
       <div className="hero-content relative z-30 flex flex-col items-center justify-center h-full px-4 pt-24">
