@@ -24,7 +24,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-  <section id="home" className="relative w-full md:min-h-screen overflow-hidden">
+  <section id="home" className="relative w-full min-h-[72vh] md:min-h-screen overflow-hidden">
       {/* Background Gradient (covers full section) */}
       <div className="absolute inset-0 bg-hero-gradient" />
 
@@ -42,25 +42,24 @@ export default function HeroSection() {
       </div>
 
       {/* Hero Content */}
-  <div className="hero-content relative z-30 flex flex-col items-center justify-center px-4 py-8 md:py-32 md:min-h-[80vh]">
+  <div className="hero-content relative z-30 flex flex-col items-center justify-center min-h-[72vh] px-4 py-12 md:py-32 md:min-h-[80vh]">
   <div className="text-center mx-auto w-full px-4 md:px-0 max-w-[1100px]">
-            <h1 className="font-dm-sans font-bold text-white mb-8 tracking-[-3.6px] leading-[0.9] text-6xl md:text-6xl lg:text-[72px] xl:text-[88px]">
+            <h1 className="font-dm-sans font-bold text-white mb-8 tracking-[-1.6px] leading-[0.95] text-4xl sm:text-5xl md:text-6xl lg:text-[72px] xl:text-[88px]">
             <span className="block">Africa’s First Streaming</span>
             <span className="block">and Social Platform,</span>
             <span className="block">Powered by</span>
             <span className="block">StroomCoin</span>
           </h1>
 
-            <p className="font-inter font-normal text-white/95 mb-12 mx-auto max-w-2xl text-xl md:text-[20px] leading-[1.45] tracking-[-0.3px]">
+            <p className="font-inter font-normal text-white/95 mb-12 mx-auto max-w-2xl text-base sm:text-lg md:text-[20px] leading-[1.4] tracking-[-0.2px]">
             Empowering African creators with monetization, exposure, and community impact.
           </p>
 
           <div className="group relative flex items-center justify-center mx-auto">
-            {/* background pill: keep md+ exact sizes, make mobile pill a bit larger for visibility */}
-            <div className="md:w-[480px] md:h-[112px] w-full max-w-lg px-10 py-6 md:px-0 md:py-0 rounded-[72px] bg-button-gradient shadow-[0_6px_48px_rgba(43,87,196,0.22)] transform transition-transform duration-300 ease-out group-hover:scale-105 group-hover:shadow-[0_10px_56px_rgba(43,87,196,0.38)]" />
+            {/* Single CTA button (mobile-first) that retains md+ sizing */}
             <button
               onClick={scrollToContact}
-              className="btn-animated absolute inset-0 flex items-center justify-center font-roboto font-bold text-white text-2xl md:text-[40px] leading-[1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-[#2B57C4]"
+              className="btn-animated inline-flex items-center justify-center w-full max-w-lg px-10 py-6 md:w-[480px] md:h-[112px] md:px-0 md:py-0 rounded-[72px] font-roboto font-bold text-white text-2xl md:text-[40px] leading-[1] shadow-[0_6px_48px_rgba(43,87,196,0.22)] transform transition-transform duration-300 ease-out"
             >
               Contact Us
             </button>
