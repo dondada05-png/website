@@ -129,7 +129,15 @@ export default function ContactSection() {
                     disabled={loading}
                     className={`btn-animated inline-flex items-center justify-center px-5 py-3 min-w-[120px] rounded-lg bg-send-button-gradient shadow-[0_6px_30px_0_rgba(124,58,237,0.18)] font-roboto font-medium text-base md:text-lg text-white whitespace-nowrap ${loading ? 'opacity-60 cursor-wait' : ''}`}
                   >
-                    <span className="leading-tight">{loading ? 'Sending...' : 'Send message'}</span>
+                    <span className="leading-tight inline-flex items-center gap-2">
+                      {loading && (
+                        <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden>
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                        </svg>
+                      )}
+                      {loading ? 'Sending...' : 'Send message'}
+                    </span>
                   </button>
                 </div>
               </div>
