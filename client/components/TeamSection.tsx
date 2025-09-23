@@ -14,7 +14,7 @@ function TeamMember({ name, title, image, isPlaceholder = false }: TeamMemberPro
           <img 
             src={image} 
             alt={name}
-            className="w-[324px] h-[405px] object-cover absolute -left-10 -top-[13px]"
+            className="absolute inset-0 w-full h-full object-cover"
           />
         ) : null}
       </div>
@@ -37,7 +37,7 @@ export default function TeamSection() {
     {
       name: "Rusango André Salvator",
       title: "Chief Executive Officer (CEO)",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/0d2eddbce1fc7a9c84d87a19c8fbd9aa49ee78c5?width=648",
+      image: "/rusango.jpg",
       isPlaceholder: false
     },
     {
