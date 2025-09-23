@@ -22,7 +22,7 @@ export default function MarketAnalysisSection() {
         {/* Title */}
         <h2 className="text-center font-bold text-2xl sm:text-4xl md:text-5xl mb-8 sm:mb-14">
           <span className="text-white">Market </span>
-          <span style={{ color: '#8000ff' }}>Analysis</span>
+          <span className="text-purple-700">Analysis</span>
         </h2>
         {/* Statistic Boxes */}
   <div className="flex flex-col lg:flex-row justify-center items-center gap-8 lg:gap-[30px] w-full">
@@ -30,7 +30,6 @@ export default function MarketAnalysisSection() {
             <div
               key={i}
               className="flex flex-col items-center w-full lg:max-w-[320px] bg-[#181818] border border-[#333] rounded-[12px] px-0 sm:px-5 py-5 sm:py-7 min-w-0 mx-auto"
-              style={{ background: '#181818' }}
             >
               {/* Icon placeholder */}
               <div className="mb-4 sm:mb-6 flex items-center justify-center w-10 sm:w-12 h-10 sm:h-12 rounded-lg bg-white">

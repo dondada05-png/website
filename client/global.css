@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap");
+
+
+
 /* --- RANDOM DIRECTION ANIMATIONS FOR HERO PARTICLES --- */
 .particle-move-1 { animation: move-random-1 18s ease-in-out infinite alternate; }
 .particle-move-2 { animation: move-random-2 22s ease-in-out infinite alternate; }
@@ -310,8 +316,159 @@ html, body {
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
-  opacity: 0.7;
-  filter: blur(32px) brightness(1.35);
+  opacity: 0.75;
+  /* reduced blur for better performance */
+  filter: blur(16px) brightness(1.15);
+}
+
+/* Floating blue glow particles: sizes + directional float animations */
+.floating-blue-glow {
+  background: radial-gradient(circle, rgba(0,230,255,0.95) 0%, rgba(0,80,128,0.75) 70%);
+  /* softened shadow to reduce paint cost */
+  box-shadow: 0 0 28px 8px rgba(0,230,255,0.06), inset 0 0 16px rgba(0,120,180,0.06);
+  will-change: transform, opacity;
+}
+
+/* sizes */
+.size-xs { width: 30px; height: 30px; }
+.size-sm { width: 50px; height: 50px; }
+.size-md { width: 80px; height: 80px; }
+.size-lg { width: 120px; height: 120px; }
+.size-xl { width: 160px; height: 160px; }
+
+/* 20 different float directions/positions/durations for natural variety */
+.float-dir-1 { left: 6%; top: 20%; animation: float-1 28s ease-in-out infinite alternate; }
+.float-dir-2 { left: 18%; top: 70%; animation: float-2 22s ease-in-out infinite alternate; }
+.float-dir-3 { left: 32%; top: 12%; animation: float-3 30s ease-in-out infinite alternate; }
+.float-dir-4 { left: 46%; top: 46%; animation: float-4 24s ease-in-out infinite alternate; }
+.float-dir-5 { left: 58%; top: 80%; animation: float-5 20s ease-in-out infinite alternate; }
+.float-dir-6 { left: 72%; top: 28%; animation: float-6 28s ease-in-out infinite alternate; }
+.float-dir-7 { left: 86%; top: 62%; animation: float-7 26s ease-in-out infinite alternate; }
+.float-dir-8 { left: 8%; top: 86%; animation: float-8 18s ease-in-out infinite alternate; }
+.float-dir-9 { left: 22%; top: 36%; animation: float-9 32s ease-in-out infinite alternate; }
+.float-dir-10 { left: 38%; top: 58%; animation: float-10 24s ease-in-out infinite alternate; }
+.float-dir-11 { left: 52%; top: 8%; animation: float-11 28s ease-in-out infinite alternate; }
+.float-dir-12 { left: 64%; top: 44%; animation: float-12 23s ease-in-out infinite alternate; }
+.float-dir-13 { left: 74%; top: 6%; animation: float-13 34s ease-in-out infinite alternate; }
+.float-dir-14 { left: 90%; top: 14%; animation: float-14 21s ease-in-out infinite alternate; }
+.float-dir-15 { left: 12%; top: 52%; animation: float-15 24s ease-in-out infinite alternate; }
+.float-dir-16 { left: 28%; top: 92%; animation: float-16 28s ease-in-out infinite alternate; }
+.float-dir-17 { left: 44%; top: 26%; animation: float-17 26s ease-in-out infinite alternate; }
+.float-dir-18 { left: 56%; top: 72%; animation: float-18 30s ease-in-out infinite alternate; }
+.float-dir-19 { left: 68%; top: 18%; animation: float-19 20s ease-in-out infinite alternate; }
+.float-dir-20 { left: 82%; top: 90%; animation: float-20 32s ease-in-out infinite alternate; }
+
+@keyframes float-1 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(36px,-48px) scale(1.05) rotate(-3deg); }
+ 100% { transform: translate(0,0) scale(1); }
+}
+@keyframes float-2 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(-48px,32px) scale(1.06) rotate(2deg); }
+ 100% { transform: translate(0,0) scale(1); }
+}
+@keyframes float-3 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(72px,24px) scale(1.08) rotate(4deg); }
+ 100% { transform: translate(0,0) scale(1); }
+}
+@keyframes float-4 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(-36px,-64px) scale(1.04) rotate(-2deg); }
+ 100% { transform: translate(0,0) scale(1); }
+}
+@keyframes float-5 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(44px,68px) scale(1.07) rotate(3deg); }
+ 100% { transform: translate(0,0) scale(1); }
+}
+@keyframes float-6 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(-72px,16px) scale(1.09) rotate(-4deg); }
+ 100% { transform: translate(0,0) scale(1); }
+}
+@keyframes float-7 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(56px,-36px) scale(1.06) rotate(2deg); }
+ 100% { transform: translate(0,0) scale(1); }
+}
+@keyframes float-8 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(-24px,92px) scale(1.05) rotate(-3deg); }
+ 100% { transform: translate(0,0) scale(1); }
+}
+@keyframes float-9 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(88px,-20px) scale(1.12) rotate(5deg); }
+ 100% { transform: translate(0,0) scale(1); }
+}
+@keyframes float-10 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(-40px,44px) scale(1.06) rotate(-2deg); }
+ 100% { transform: translate(0,0) scale(1); }
+}
+@keyframes float-11 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(60px,76px) scale(1.08) rotate(4deg); }
+ 100% { transform: translate(0,0) scale(1); }
+}
+@keyframes float-12 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(-84px,-24px) scale(1.1) rotate(-5deg); }
+ 100% { transform: translate(0,0) scale(1); }
+}
+@keyframes float-13 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(36px,120px) scale(1.09) rotate(6deg); }
+ 100% { transform: translate(0,0) scale(1); }
+}
+@keyframes float-14 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(-56px,36px) scale(1.07) rotate(-3deg); }
+ 100% { transform: translate(0,0) scale(1); }
+}
+@keyframes float-15 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(24px,-84px) scale(1.05) rotate(2deg); }
+ 100% { transform: translate(0,0) scale(1); }
+}
+@keyframes float-16 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(-96px,48px) scale(1.12) rotate(-6deg); }
+ 100% { transform: translate(0,0) scale(1); }
+}
+@keyframes float-17 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(68px,-56px) scale(1.08) rotate(4deg); }
+ 100% { transform: translate(0,0) scale(1); }
+}
+@keyframes float-18 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(-44px,86px) scale(1.09) rotate(-4deg); }
+ 100% { transform: translate(0,0) scale(1); }
+}
+@keyframes float-19 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(92px,12px) scale(1.11) rotate(5deg); }
+ 100% { transform: translate(0,0) scale(1); }
+}
+@keyframes float-20 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(-28px,132px) scale(1.14) rotate(-7deg); }
+ 100% { transform: translate(0,0) scale(1); }
+}
+
+/* Respect prefers-reduced-motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .floating-blue-glow,
+  .hero-particle,
+  [class*="float-dir-"],
+  [class*="particle-move-"],
+  .particle-glow-pulse {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 .particle-anim-1 { animation: particle-bounce-1 13s cubic-bezier(0.4,0,0.2,1) infinite alternate; }
 .particle-anim-2 { animation: particle-bounce-2 15s cubic-bezier(0.4,0,0.2,1) infinite alternate; }
@@ -438,11 +595,6 @@ html, body {
 .animate-pop-in {
   animation: pop-in 0.6s cubic-bezier(0.4,0,0.2,1) both;
 }
-/** @import must precede all other statements */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
