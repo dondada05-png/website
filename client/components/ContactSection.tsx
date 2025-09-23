@@ -84,13 +84,13 @@ export default function ContactSection() {
               <div className="flex items-center justify-between mt-6">
                 <p className="text-xs text-[#AAA]">We respect your privacy. No spam.</p>
 
-                <div className="relative">
-                  <div className="w-[150px] h-[48px] rounded-[12px] bg-send-button-gradient shadow-[0_6px_30px_0_rgba(124,58,237,0.18)]" />
+                <div>
                   <button
                     type="submit"
-                    className="btn-animated absolute inset-0 flex items-center justify-center px-6 font-roboto font-medium text-lg text-white"
+                    aria-label="Send message"
+                    className="btn-animated inline-flex items-center justify-center px-5 py-3 min-w-[120px] rounded-lg bg-send-button-gradient shadow-[0_6px_30px_0_rgba(124,58,237,0.18)] font-roboto font-medium text-base md:text-lg text-white whitespace-nowrap"
                   >
-                    Send message
+                    <span className="leading-tight">Send message</span>
                   </button>
                 </div>
               </div>
