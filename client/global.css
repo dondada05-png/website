@@ -520,39 +520,39 @@ html, body {
 .glow-7 { animation: glow-lr-small 16s ease-in-out infinite alternate; } /* subtle left->right */
 
 @keyframes glow-lr {
-  0% { transform: translateX(-32px) scale(1); }
-  50% { transform: translateX(32px) scale(1.03); }
- 100% { transform: translateX(-32px) scale(1); }
+  0% { transform: translateX(-64px) scale(1); }
+  50% { transform: translateX(64px) scale(1.03); }
+ 100% { transform: translateX(-64px) scale(1); }
 }
 @keyframes glow-rl {
-  0% { transform: translateX(32px) scale(1); }
-  50% { transform: translateX(-32px) scale(1.03); }
- 100% { transform: translateX(32px) scale(1); }
+  0% { transform: translateX(64px) scale(1); }
+  50% { transform: translateX(-64px) scale(1.03); }
+ 100% { transform: translateX(64px) scale(1); }
 }
 @keyframes glow-ud {
-  0% { transform: translateY(-28px) scale(1); }
-  50% { transform: translateY(28px) scale(1.03); }
- 100% { transform: translateY(-28px) scale(1); }
+  0% { transform: translateY(-56px) scale(1); }
+  50% { transform: translateY(56px) scale(1.03); }
+ 100% { transform: translateY(-56px) scale(1); }
 }
 @keyframes glow-du {
-  0% { transform: translateY(28px) scale(1); }
-  50% { transform: translateY(-28px) scale(1.03); }
- 100% { transform: translateY(28px) scale(1); }
+  0% { transform: translateY(56px) scale(1); }
+  50% { transform: translateY(-56px) scale(1.03); }
+ 100% { transform: translateY(56px) scale(1); }
 }
 @keyframes glow-diag-a {
-  0% { transform: translate(-32px,-20px) scale(1); }
-  50% { transform: translate(32px,20px) scale(1.035); }
- 100% { transform: translate(-32px,-20px) scale(1); }
+  0% { transform: translate(-64px,-40px) scale(1); }
+  50% { transform: translate(64px,40px) scale(1.035); }
+ 100% { transform: translate(-64px,-40px) scale(1); }
 }
 @keyframes glow-diag-b {
-  0% { transform: translate(32px,-20px) scale(1); }
-  50% { transform: translate(-32px,20px) scale(1.035); }
- 100% { transform: translate(32px,-20px) scale(1); }
+  0% { transform: translate(64px,-40px) scale(1); }
+  50% { transform: translate(-64px,40px) scale(1.035); }
+ 100% { transform: translate(64px,-40px) scale(1); }
 }
 @keyframes glow-lr-small {
-  0% { transform: translateX(-16px) scale(1); }
-  50% { transform: translateX(16px) scale(1.02); }
- 100% { transform: translateX(-16px) scale(1); }
+  0% { transform: translateX(-48px) scale(1); }
+  50% { transform: translateX(48px) scale(1.02); }
+ 100% { transform: translateX(-48px) scale(1); }
 }
 
 @media (prefers-reduced-motion: reduce) {
