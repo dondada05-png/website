@@ -42,7 +42,7 @@ export default function HeroSection() {
       </div>
 
       {/* Hero Content */}
-      <div className="hero-content relative z-30 flex flex-col items-center justify-center min-h-[80vh] px-4 pt-24">
+  <div className="hero-content relative z-30 flex flex-col items-center justify-center md:min-h-[80vh] px-4 pt-12 md:pt-24">
   <div className="text-center mx-auto w-full px-4 md:px-0 max-w-[1100px]">
             <h1 className="font-dm-sans font-bold text-white mb-8 tracking-[-3.6px] leading-[0.9] text-6xl md:text-6xl lg:text-[72px] xl:text-[88px]">
             <span className="block">Africa’s First Streaming</span>
