@@ -891,9 +891,35 @@ html, body {
   z-index: 0;
 }
 
-/* Force the explore section itself to a solid black background to avoid any inheritance/utility conflicts */
+/* Make the Explore section use the same background as StroomCoin for a continuous flow */
 section#explore {
-  background-color: #000000 !important;
+  position: relative;
+  background: linear-gradient(180deg, #041026 0%, #000000 100%) !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+/* Hide global blurred pre-layer for explore and provide a section-specific blurred overlay */
+main > section#explore::before,
+section#explore::before { display: none !important; }
+
+section#explore::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(180deg, #041026 0%, #000000 100%);
+  filter: blur(40px);
+  opacity: 0.95;
+}
+
+@media (max-width: 1024px) {
+  section#explore::after { filter: blur(28px); opacity: 0.94; }
+}
+@media (max-width: 640px) {
+  section#explore::after { filter: blur(18px); opacity: 0.92; }
 }
 
 /* Apply the design's purple/black section gradient (same as tailwind 'section-gradient')
@@ -977,8 +1003,10 @@ main > section:not(#home) > .container {
 
 /* Re-apply purple/black gradient to Team section and make its blurred layer
    lighter so the purple tint is visible through the soft black backdrop. */
+/* Normalize team to the same stroomcoin gradient */
 section#team {
- background: linear-gradient(to bottom, #000000 0%, #001a33 40%, #002b66 70%, #0D0D0D 85%, #101a2b 92%, #1a2a4d 100%);
+  position: relative;
+  background: linear-gradient(180deg, #041026 0%, #000000 100%) !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   background-position: center !important;
@@ -995,8 +1023,6 @@ section#team::before {
 /* Hide the global blurred layer for the Team section to avoid double-stacking
    and inject a team-specific blurred gradient so the purple tint is visible. */
 main > section#team::before { display: none !important; }
-/* Also explicitly hide the global blurred layer for StroomCoin to avoid any seam */
-main > section#stroomcoin::before { display: none !important; }
 
 section#team::after {
   content: '';
@@ -1004,7 +1030,7 @@ section#team::after {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: linear-gradient(180deg, #041026 100%, #000000 100%);
+  background: linear-gradient(180deg, #041026 0%, #000000 100%);
   filter: blur(40px);
   opacity: 0.95;
 }
@@ -1017,8 +1043,10 @@ section#team::after {
 }
 
 /* Apply the same purple/black blurred gradient overlay to the StroomCoin section */
+/* Ensure StroomCoin matches the normalized gradient (teal -> black) */
 section#stroomcoin {
-  background-image: linear-gradient(180deg, #000 0%, rgba(93, 44, 168, 0.85) 57.83%) !important;
+  position: relative;
+  background: linear-gradient(180deg, #041026 0%, #000000 100%) !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   background-position: center !important;
@@ -1033,7 +1061,7 @@ section#stroomcoin::after {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: linear-gradient(180deg, #000000 0%, #041026 100%);
+  background: linear-gradient(180deg, #041026 0%, #000000 100%);
   filter: blur(40px);
   opacity: 0.95;
 }
@@ -1051,15 +1079,13 @@ section#stroomcoin::after {
    gradient so the upper side is the deep teal instead of black. */
 section#stroomcoin {
   position: relative;
-  background: linear-gradient(180deg, #000000 0%, #041026 100%) !important;
+  background: linear-gradient(180deg,#041026 100%, #000000 0%) !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   background-position: center !important;
   border: none !important;
   box-shadow: none !important;
   margin: 0 !important;
-  border: none !important;
-  background-color: transparent !important; /* ensure no underlying black shows */
 }
 
 section#team {
@@ -1072,14 +1098,12 @@ section#team {
   border: none !important;
   box-shadow: none !important;
   margin: 0 !important;
-  border: none !important;
-  background-color: transparent !important; /* ensure no underlying black shows */
 }
 
-/* Remove any top/bottom spacing that could create a visible seam */
-section#stroomcoin { padding-bottom: 0 !important; margin-bottom: 0 !important; }
-/* Add top padding requested for Team and ensure no seam — adjust value as needed */
-section#team { padding-top: 3.5rem !important; margin-top: 0 !important; }
+/* Add spacing so sections breathe and content doesn't collide with overlays */
+/* Bottom padding for StroomCoin and top padding for Team to maintain continuity */
+section#stroomcoin { padding-bottom: 5rem !important; }
+section#team { padding-top: 5rem !important; }
 
 /* Ensure the team/stroomcoin overlays are aligned and sit behind content */
 section#stroomcoin::after,
@@ -1102,7 +1126,7 @@ section#team::after {
   transform: translate(-50%, -50%);
   width: 120%;
   height: 120%;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0,0,0,0.6);
   border-radius: 8px;
   pointer-events: none;
   filter: blur(28px) brightness(0.95);
