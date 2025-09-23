@@ -55,7 +55,7 @@ export default function HeroSection() {
             Empowering African creators with monetization, exposure, and community impact.
           </p>
 
-          <div className="group relative inline-flex justify-center">
+          <div className="group relative flex items-center justify-center mx-auto">
             {/* background pill: keep md+ exact sizes, make mobile pill a bit larger for visibility */}
             <div className="md:w-[480px] md:h-[112px] w-full max-w-lg px-10 py-6 md:px-0 md:py-0 rounded-[72px] bg-button-gradient shadow-[0_6px_48px_rgba(43,87,196,0.22)] transform transition-transform duration-300 ease-out group-hover:scale-105 group-hover:shadow-[0_10px_56px_rgba(43,87,196,0.38)]" />
             <button
