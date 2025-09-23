@@ -23,89 +23,99 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="relative w-full bg-black py-20">
-      <div className="container mx-auto px-12 max-w-7xl">
+      <div className="container mx-auto px-6 max-w-6xl">
         <div className="flex flex-col items-center relative">
           {/* Section Title */}
-          <h2 className="font-dm-sans font-bold text-[54px] leading-[60px] tracking-[-3.24px] text-white text-center mb-8">
+          <h2 className="font-dm-sans font-bold text-4xl md:text-[54px] leading-tight text-white text-center mb-4">
             Contact us
           </h2>
-          
-          <p className="font-inter font-bold text-base leading-[23px] tracking-[-0.16px] text-[#BBB] text-center mb-16 max-w-[498px]">
-            Empower African creators, elevate the value of digital content.
+
+          <p className="font-inter text-sm md:text-base text-[#BBB] text-center mb-10 max-w-xl">
+            Empower African creators — tell us about your project, partnership or feedback and we'll get back within 48 hours.
           </p>
-          
+
           {/* Form Container */}
-          <div className="relative z-10">
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-[503px]">
-              {/* Name Input */}
-              <div className="contact-input flex items-center gap-2 w-[479px] h-[42px] px-3 py-2 rounded-[10px] bg-white/20">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Enter your name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="flex-1 bg-transparent text-white placeholder-white/50 font-inter text-base font-medium tracking-[-0.32px] outline-none"
-                />
+          <div className="relative z-10 w-full flex justify-center">
+            <form onSubmit={handleSubmit} className="w-full px-4 sm:px-0 max-w-3xl bg-white/5 backdrop-blur-md rounded-2xl p-6 md:p-8 shadow-lg">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="name" className="sr-only">Full name</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    placeholder="Full name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-purple-500/40 transition"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="sr-only">Email address</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="Email address"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-purple-500/40 transition"
+                  />
+                </div>
               </div>
-              
-              {/* Email Input */}
-              <div className="contact-input flex items-center gap-2 w-[479px] h-[42px] px-3 py-2 rounded-[10px] bg-white/20">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Enter your Email address"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="flex-1 bg-transparent text-white placeholder-white/50 font-inter text-base font-medium tracking-[-0.32px] outline-none"
-                />
-              </div>
-              
-              {/* Message Textarea */}
-              <div className="contact-textarea flex items-start gap-2 w-[487px] h-[178px] px-3 py-2 rounded-[15px] bg-white/20">
+
+              <div className="mt-4">
+                <label htmlFor="message" className="sr-only">Message</label>
                 <textarea
+                  id="message"
                   name="message"
-                  placeholder="Enter your message"
+                  required
+                  placeholder="How can we help? Tell us a bit about your idea or question."
                   value={formData.message}
                   onChange={handleInputChange}
-                  className="flex-1 h-full bg-transparent text-white placeholder-white/50 font-inter text-base font-medium tracking-[-0.32px] outline-none resize-none"
+                  rows={6}
+                  className="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-purple-500/40 transition resize-none mt-1"
                 />
               </div>
-              
-              {/* Submit Button */}
-              <div className="flex justify-center mt-8">
+
+              <div className="flex items-center justify-between mt-6">
+                <p className="text-xs text-[#AAA]">We respect your privacy. No spam.</p>
+
                 <div className="relative">
-                  <div className="w-[145px] h-[47px] rounded-[19px] bg-send-button-gradient shadow-[0_3px_26px_0_rgba(255,255,255,0.25)]" />
-                  <button 
+                  <div className="w-[150px] h-[48px] rounded-[12px] bg-send-button-gradient shadow-[0_6px_30px_0_rgba(124,58,237,0.18)]" />
+                  <button
                     type="submit"
-                    className="btn-animated absolute inset-0 flex items-center justify-center w-[145px] h-[47px] font-roboto font-normal text-[24px] leading-[32px] text-white"
+                    className="btn-animated absolute inset-0 flex items-center justify-center px-6 font-roboto font-medium text-lg text-white"
                   >
-                    Send
+                    Send message
                   </button>
                 </div>
               </div>
             </form>
           </div>
-          
+
           {/* Decorative Elements */}
-          <div className="absolute left-[46px] top-[195px] hidden lg:block">
-            <img 
-              src="https://api.builder.io/api/v1/image/assets/TEMP/028cdef09bdb772d9c208230b6156a9fbf2da14a?width=526" 
-              alt="" 
-              className="w-[263px] h-[263px]"
+          <div className="absolute left-6 top-[170px] hidden lg:block">
+            <img
+              src="https://api.builder.io/api/v1/image/assets/TEMP/028cdef09bdb772d9c208230b6156a9fbf2da14a?width=526"
+              alt="decor"
+              className="w-[200px] h-[200px] opacity-60"
             />
           </div>
-          
-          <div className="absolute right-[93px] top-[345px] hidden lg:block">
-            <img 
-              src="https://api.builder.io/api/v1/image/assets/TEMP/02a09f6468ea56d96ae5e0c2522448de4c34bdbb?width=450" 
-              alt="" 
-              className="w-[225px] h-[225px] transform rotate-[-12.554deg]"
+
+          <div className="absolute right-8 top-[340px] hidden lg:block">
+            <img
+              src="https://api.builder.io/api/v1/image/assets/TEMP/02a09f6468ea56d96ae5e0c2522448de4c34bdbb?width=450"
+              alt="decor"
+              className="w-[180px] h-[180px] transform -rotate-12 opacity-60"
             />
           </div>
         </div>
       </div>
-      
+
       {/* Footer Copyright */}
       <div className="absolute bottom-8 left-8">
         <p className="font-inter font-bold text-base leading-[23px] tracking-[-0.16px] text-[#BBB] text-center">
