@@ -1064,3 +1064,9 @@ section#explore {
     @apply bg-background text-foreground;
   }
 }
+
+/* Safety override: ensure brand gold displays as the intended color when utility
+   classes are missing, purged, or overridden by other rules. */
+.text-brand-gold {
+  color: #F1AF16 !important;
+}
