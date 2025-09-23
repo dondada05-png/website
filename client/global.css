@@ -901,7 +901,7 @@ section#explore {
 section#stroomcoin,
 section#team {
   position: relative;
-  background-image: linear-gradient(180deg, #000 0%, rgba(93, 44, 168, 0.85) 57.83%, #000 100%);
+  background-image: linear-gradient(180deg, #000 0%, rgba(93, 44, 168, 0.85) 57.83%,  rgba(93, 44, 168, 0.85) 57.83%);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -923,6 +923,21 @@ section#stroomcoin > .container,
 section#team > .container {
   position: relative;
   z-index: 10;
+}
+
+/* Make all sections that come after the hero use a solid black background.
+   This targets the common layout in `client/pages/Index.tsx` where sections
+   are direct children of <main>. It also clears any background-image that
+   may have been applied (e.g. purple gradients) so the area appears pure black. */
+main > section:not(#home) {
+  background-color: #000 !important;
+  background-image: none !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Ensure inner bg gradient element (if present) also renders black */
+.bg-section-gradient {
+  background: #000000 !important;
 }
 
 /* Add a subtle blurred overlay for the explore section to create depth */
