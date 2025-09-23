@@ -940,6 +940,40 @@ main > section:not(#home) {
   background: #000000 !important;
 }
 
+/* Soft blurred backdrop for post-hero sections: create a large blurred layer behind content
+   so the section reads as soft black rather than a flat block. Content stays sharp above it. */
+main > section:not(#home) {
+  position: relative;
+  overflow: hidden;
+}
+
+main > section:not(#home)::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1.06);
+  width: 140%;
+  height: 140%;
+  background: rgba(0,0,0,0.85);
+  filter: blur(36px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Keep section content above the blurred layer */
+main > section:not(#home) > .container {
+  position: relative;
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  main > section:not(#home)::before { filter: blur(24px); background: rgba(0,0,0,0.86); }
+}
+@media (max-width: 640px) {
+  main > section:not(#home)::before { filter: blur(14px); background: rgba(0,0,0,0.88); }
+}
+
 /* Add a subtle blurred overlay for the explore section to create depth */
 .bg-section-gradient::before {
   content: '';
