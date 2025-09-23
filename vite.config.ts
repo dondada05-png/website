@@ -7,7 +7,8 @@ import { createServer } from "./server";
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
-    port: 8080,
+    // Force the dev server to use a single consistent port for development
+    port: 5173,
     fs: {
       allow: [path.resolve(__dirname, "."), path.resolve(__dirname, "./client"), path.resolve(__dirname, "./shared")],
       deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],

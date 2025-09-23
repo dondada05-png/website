@@ -1,14 +1,60 @@
+import React, { useState, useEffect } from 'react';
+
 interface NavigationProps {
   activeSection?: string;
 }
 
 export default function Navigation({ activeSection }: NavigationProps) {
+  const [imgError, setImgError] = useState(false);
+  const [activeId, setActiveId] = useState<string | undefined>(activeSection ?? 'home');
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // Scroll-spy: update activeId based on which section is nearest to the viewport center
+  // Uses a requestAnimationFrame throttle for performance
+  useEffect(() => {
+    let ticking = false;
+
+    const ids = ['home', 'explore', 'stroomcoin', 'team', 'contact'];
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const viewportCenter = window.innerHeight / 2;
+        let closestId: string | undefined = undefined;
+        let closestDist = Infinity;
+
+        for (const id of ids) {
+          const el = document.getElementById(id);
+          if (!el) continue;
+          const rect = el.getBoundingClientRect();
+          const dist = Math.abs(rect.top + rect.height / 2 - viewportCenter);
+          if (dist < closestDist) {
+            closestDist = dist;
+            closestId = id;
+          }
+        }
+
+        if (closestId && closestId !== activeId) {
+          setActiveId(closestId);
+        }
+
+        ticking = false;
+      });
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    // run once on mount
+    onScroll();
+
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [activeId]);
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -22,55 +68,70 @@ export default function Navigation({ activeSection }: NavigationProps) {
   const contactItem = navItems.find((n) => n.id === 'contact');
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#101010]/95 backdrop-blur supports-[backdrop-filter]:bg-[#101010]/80 h-[72px]">
-      <div className="h-full mx-auto max-w-7xl px-6 grid grid-cols-3 items-center">
-        {/* Left: Logo */}
-        <button onClick={() => scrollToSection('home')} className="flex items-center justify-start">
-          <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/70db57652d0a2e1dafed9a2976e3e53f9e303acc?width=84"
-            alt="StroomUp Logo"
-            className="w-[42px] h-[41px]"
-          />
-        </button>
+    <nav className="w-full bg-[#000000] fixed top-0 left-0 right-0 z-50">
+      <div className="mx-auto max-w-7xl w-full py-[15px] px-[40px]">
+        <div className="flex items-center justify-between w-full">
+          {/* Logo - flush left */}
+          <div className="flex items-center flex-shrink-0">
+            <button
+              onClick={() => {
+                setActiveId('home');
+                scrollToSection('home');
+              }}
+              aria-label="Home"
+              className="flex items-center justify-center w-10 h-10 rounded-full overflow-hidden bg-white/5"
+            >
+              {/* Logo image (falls back to emoji if image missing) */}
+              {imgError ? (
+                <span className="text-white text-lg leading-none">🚀</span>
+              ) : (
+                <img
+                  src="/blue.ico"
+                  alt="Stroomup logo"
+                  className="w-full h-full object-cover"
+                  onError={() => setImgError(true)}
+                />
+              )}
+            </button>
+          </div>
 
-        {/* Center: links */}
-        <div className="flex items-center justify-center gap-12">
-          {centerItems.map((item) => {
-            const isActive = activeSection === item.id;
-            return (
+          {/* Center links - evenly distributed across available space */}
+          <div className="flex-1 flex justify-center">
+            <div className="flex items-center justify-evenly w-full max-w-2xl whitespace-nowrap">
+              {centerItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    setActiveId(item.id);
+                    scrollToSection(item.id);
+                  }}
+                  className={`text-white font-bold text-sm px-3 py-[6px] leading-none transition-colors hover:text-[#0066ff] nav-link ${
+                    activeId === item.id ? 'active' : ''
+                  }`}
+                  aria-label={item.label}
+                >
+                  <span className="nav-label inline-block">{item.label}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact us - flush right */}
+          <div className="flex items-center flex-shrink-0">
+            {contactItem ? (
               <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`group relative px-2 py-1 font-roboto font-bold text-base leading-6 tracking-[0.15px] transition-colors ${
-                  isActive ? 'text-brand-blue' : 'text-white hover:text-brand-blue'
+                onClick={() => {
+                  setActiveId(contactItem.id);
+                  scrollToSection(contactItem.id);
+                }}
+                className={`text-white font-bold text-sm px-3 py-[6px] leading-none transition-colors hover:text-[#0066ff] whitespace-nowrap nav-link ${
+                  activeId === contactItem.id ? 'active' : ''
                 }`}
               >
-                {item.label}
-                <span
-                  className={`pointer-events-none absolute -bottom-2 left-1/2 h-[3px] w-0 -translate-x-1/2 rounded-full bg-gradient-to-r from-[#2B57C4] via-[#5B6CFF] to-[#2B57C4] transition-all duration-300 ${
-                    isActive ? 'w-8' : 'group-hover:w-8'
-                  }`}
-                />
+                {contactItem.label}
               </button>
-            );
-          })}
-        </div>
-
-        {/* Right: Contact us */}
-        <div className="flex items-center justify-end">
-          {contactItem ? (
-            <button
-              onClick={() => scrollToSection(contactItem.id)}
-              className={`group relative font-roboto font-bold text-base leading-6 tracking-[0.15px] px-3 py-1 transition-colors ${
-                activeSection === contactItem.id ? 'text-brand-blue' : 'text-white hover:text-brand-blue'
-              }`}
-            >
-              {contactItem.label}
-              <span className={`pointer-events-none absolute -bottom-2 left-1/2 h-[3px] w-0 -translate-x-1/2 rounded-full bg-gradient-to-r from-[#2B57C4] via-[#5B6CFF] to-[#2B57C4] transition-all duration-300 ${
-                activeSection === contactItem.id ? 'w-8' : 'group-hover:w-8'
-              }`} />
-            </button>
-          ) : null}
+            ) : null}
+          </div>
         </div>
       </div>
     </nav>
