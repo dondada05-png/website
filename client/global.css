@@ -896,6 +896,35 @@ section#explore {
   background-color: #000000 !important;
 }
 
+/* Apply the design's purple/black section gradient (same as tailwind 'section-gradient')
+   to the StroomCoin and Team sections. Keep content above the gradient. */
+section#stroomcoin,
+section#team {
+  position: relative;
+  background-image: linear-gradient(180deg, #000 0%, rgba(93, 44, 168, 0.85) 57.83%, #000 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Add a subtle overlay to deepen the black areas and keep text legible */
+section#stroomcoin::before,
+section#team::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure section content stacks above the overlay */
+section#stroomcoin > .container,
+section#team > .container {
+  position: relative;
+  z-index: 10;
+}
+
 /* Add a subtle blurred overlay for the explore section to create depth */
 .bg-section-gradient::before {
   content: '';
