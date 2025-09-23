@@ -975,6 +975,24 @@ main > section:not(#home) > .container {
   main > section:not(#home)::before { filter: blur(22px); background: rgba(0,0,0,0.90); }
 }
 
+/* Re-apply purple/black gradient to Team section and make its blurred layer
+   lighter so the purple tint is visible through the soft black backdrop. */
+section#team {
+  background-image: linear-gradient(180deg, #000 0%, rgba(93, 44, 168, 0.85) 57.83%, #000 100%) !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+/* Make the default global blurred layer less opaque for the Team section so
+   the gradient shines through while keeping the strong blur. */
+main > section#team::before,
+section#team::before {
+  background: rgba(0,0,0,0.60) !important;
+  filter: blur(48px) !important;
+}
+
+
 /* Add a subtle blurred overlay for the explore section to create depth */
 .bg-section-gradient::before {
   content: '';
