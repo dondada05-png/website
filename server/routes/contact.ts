@@ -3,7 +3,25 @@ import nodemailer from 'nodemailer';
 
 export const handleContact: RequestHandler = async (req, res) => {
   try {
-    const { name, email, message } = req.body as {
+    // Normalize body: some serverless adapters pass a raw string in req.body
+    let body = req.body as any;
+    if (typeof body === 'string') {
+      try {
+        body = JSON.parse(body);
+      } catch (e) {
+        // leave as-is
+      }
+    }
+    // Some wrappers may wrap the original request body under a 'body' property
+    if (body && body.body && typeof body.body === 'string') {
+      try {
+        body = JSON.parse(body.body);
+      } catch (e) {
+        body = body.body;
+      }
+    }
+
+    const { name, email, message } = body as {
       name?: string;
       email?: string;
       message?: string;
