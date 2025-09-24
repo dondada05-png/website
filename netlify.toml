@@ -1,11 +1,11 @@
 [build]
-  command = "npm run build:client"
+  command = "pnpm build"
   functions = "netlify/functions"
   publish = "dist/spa"
 
 
 [functions]
-  external_node_modules = ["express"]
+  # Let esbuild bundle node_modules to avoid runtime resolution problems with ESM/CJS
   node_bundler = "esbuild"
   
 [[redirects]]
