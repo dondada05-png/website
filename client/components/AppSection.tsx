@@ -25,9 +25,9 @@ export default function AppSection() {
             <div className="absolute left-1/2 transform -translate-x-1/2 w-3/4 sm:w-2/3 md:w-1/2 bottom-0 translate-y-1/2">
               <div className="group relative rounded-2xl overflow-hidden shadow-2xl hover:shadow-[0_30px_60px_rgba(0,0,0,0.6)] transition-shadow duration-300">
                 <img
-                  src="/front.png"
-                  alt="App front repeat"
-                  className="w-full h-48 sm:h-60 md:h-72 object-cover transform transition-transform duration-300 ease-out group-hover:scale-105 group-hover:-translate-y-2"
+                  src="/side.png"
+                  alt="App side preview"
+                  className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-400 ease-out group-hover:scale-105 group-hover:translate-y-[-6px]"
                 />
               </div>
             </div>
