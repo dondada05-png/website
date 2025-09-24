@@ -53,7 +53,8 @@ export default function TeamSection() {
     {
       name: "Mucyo Kevin",
       title: "Chief Technology Officer (CTO)",
-      isPlaceholder: true
+      image: "/kevin.jpg",
+      isPlaceholder: false
     }
   ];
 
