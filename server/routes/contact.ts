@@ -13,11 +13,21 @@ export const handleContact: RequestHandler = async (req, res) => {
       }
     }
     // Some wrappers may wrap the original request body under a 'body' property
-    if (body && body.body && typeof body.body === 'string') {
-      try {
-        body = JSON.parse(body.body);
-      } catch (e) {
-        body = body.body;
+    if (body && body.body) {
+      if (typeof body.body === 'string') {
+        try {
+          body = JSON.parse(body.body);
+        } catch (e) {
+          body = body.body;
+        }
+      } else if (body.body && body.body.type === 'Buffer' && Array.isArray(body.body.data)) {
+        try {
+          const buf = Buffer.from(body.body.data);
+          const txt = buf.toString('utf8');
+          body = JSON.parse(txt);
+        } catch (e) {
+          body = body.body;
+        }
       }
     }
 
