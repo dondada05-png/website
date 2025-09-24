@@ -27,8 +27,8 @@ export default function AppSection() {
   const next = () => setIndex((i) => (i + 1) % SLIDES.length);
 
   return (
-  <section id="app" className="relative w-full bg-black py-16 sm:py-20 md:py-28">
-      <div className="container mx-auto px-12 max-w-7xl">
+    <section id="app" className="relative w-full bg-black py-16 sm:py-20 md:py-28">
+      <div className="container mx-auto px-4 sm:px-12 max-w-7xl">
         <div className="flex flex-col items-center">
           <h2 className="font-dm-sans font-bold text-3xl sm:text-4xl md:text-[54px] leading-tight text-white text-center mb-8">
             Our App
@@ -39,7 +39,7 @@ export default function AppSection() {
           </p>
 
           <div
-            className="w-full max-w-5xl relative px-2 sm:px-6"
+            className="w-full max-w-5xl relative px-0 sm:px-6"
             onMouseEnter={() => (hoverRef.current = true)}
             onMouseLeave={() => (hoverRef.current = false)}
           >
