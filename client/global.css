@@ -980,6 +980,41 @@ section#team {
   background-position: center;
 }
 
+/* Make the App section match the StroomCoin / Team gradient and overlay so the
+   transition between sections is visually continuous */
+section#app {
+  position: relative;
+  background: linear-gradient(to bottom, #000000 0%, #001a33 40%, #002b66 70%, #0D0D0D 85%, #101a2b 92%, #1a2a4d 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+section#app::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+section#app > .container {
+  position: relative;
+  z-index: 10;
+}
+
+section#app::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(180deg, #041026 0%, #000000 100%);
+  filter: blur(40px);
+  opacity: 0.95;
+}
+
 /* Add a subtle overlay to deepen the black areas and keep text legible */
 section#stroomcoin::before,
 section#team::before {
