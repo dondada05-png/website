@@ -3,6 +3,7 @@ import Navigation from "../components/Navigation";
 import HeroSection from "../components/HeroSection";
 import ExploreSection from "../components/ExploreSection";
 import StroomCoinSection from "../components/StroomCoinSection";
+import AppSection from "../components/AppSection";
 import TeamSection from "../components/TeamSection";
 import ContactSection from "../components/ContactSection";
 
@@ -41,8 +42,9 @@ export default function Index() {
       <main>
         <HeroSection />
         <ExploreSection />
-        <StroomCoinSection />
-        <TeamSection />
+  <StroomCoinSection />
+  <AppSection />
+  <TeamSection />
         <ContactSection />
       </main>
     </div>
