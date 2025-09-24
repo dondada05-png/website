@@ -48,7 +48,8 @@ export default function TeamSection() {
     {
       name: "Tuyishime Ricardo",
       title: "Corporate Development Director",
-      isPlaceholder: true
+      image: "/ricardo.jpg",
+      isPlaceholder: false
     },
     {
       name: "Mucyo Kevin",
