@@ -73,32 +73,16 @@ export default function AppSection() {
               </button>
             </div>
 
-            {/* Bottom preview box synced with the main slide */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-3/4 sm:w-2/3 md:w-1/2 bottom-0 translate-y-1/2">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl h-48 sm:h-60 md:h-72 bg-gray-900">
-                {SLIDES.map((s, i) => (
-                  <img
-                    key={s.src + "-thumb"}
-                    src={s.src}
-                    alt={s.alt}
-                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-out transform ${
-                      i === index ? "opacity-100 scale-105" : "opacity-0 scale-95 pointer-events-none"
-                    }`}
-                  />
-                ))}
-              </div>
-
-              {/* Indicators */}
-              <div className="flex items-center justify-center gap-2 mt-4">
-                {SLIDES.map((_, i) => (
-                  <button
-                    key={i}
-                    aria-label={`Go to slide ${i + 1}`}
-                    onClick={() => setIndex(i)}
-                    className={`w-3 h-3 rounded-full ${i === index ? "bg-white" : "bg-white/30"}`}
-                  />
-                ))}
-              </div>
+            {/* Indicators below the main slide */}
+            <div className="mt-6 flex items-center justify-center gap-2">
+              {SLIDES.map((_, i) => (
+                <button
+                  key={i}
+                  aria-label={`Go to slide ${i + 1}`}
+                  onClick={() => setIndex(i)}
+                  className={`w-3 h-3 rounded-full ${i === index ? "bg-white" : "bg-white/30"}`}
+                />
+              ))}
             </div>
           </div>
         </div>
