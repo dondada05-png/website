@@ -23,7 +23,7 @@ export default function AppSection() {
 
             {/* Bottom image aligned to bottom of the section */}
             <div className="absolute left-1/2 transform -translate-x-1/2 w-3/4 sm:w-2/3 md:w-1/2 bottom-0 translate-y-1/2">
-              <div className="group relative rounded-2xl overflow-hidden shadow-2xl hover:shadow-[0_30px_60px_rgba(0,0,0,0.6)] transition-shadow duration-300">
+              <div className="group relative rounded-2xl overflow-hidden shadow-2xl hover:shadow-[0_30px_60px_rgba(0,0,0,0.6)] transition-shadow duration-300 h-48 sm:h-60 md:h-72 bg-gray-900">
                 <img
                   src="/side.png"
                   alt="App side preview"
