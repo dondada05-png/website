@@ -21,6 +21,17 @@ export const handleContact: RequestHandler = async (req, res) => {
       }
     }
 
+    // Some serverless runtimes serialize a Buffer as { type: 'Buffer', data: [...] }
+    if (body && body.type === 'Buffer' && Array.isArray(body.data)) {
+      try {
+        const buf = Buffer.from(body.data);
+        const txt = buf.toString('utf8');
+        body = JSON.parse(txt);
+      } catch (e) {
+        // keep body as-is if parse fails
+      }
+    }
+
     const { name, email, message } = body as {
       name?: string;
       email?: string;
