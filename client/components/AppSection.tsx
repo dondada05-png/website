@@ -50,10 +50,10 @@ export default function AppSection() {
                   key={s.src}
                   src={s.src}
                   alt={s.alt}
-                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-out transform ${
+                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-out transform ${
                     i === index
                       ? s.src === "/front.png"
-                        ? "opacity-100 scale-105"
+                        ? "opacity-100 scale-[1.12]"
                         : "opacity-100 scale-100"
                       : "opacity-0 scale-95 pointer-events-none"
                   }`}
