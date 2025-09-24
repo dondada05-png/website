@@ -3,8 +3,17 @@ import nodemailer from 'nodemailer';
 
 export const handleContact: RequestHandler = async (req, res) => {
   try {
-    // Normalize body: some serverless adapters pass a raw string in req.body
+    // Normalize body: some serverless adapters pass various shapes
     let body = req.body as any;
+    // If body is an actual Buffer instance, decode it
+    if (typeof Buffer !== 'undefined' && Buffer.isBuffer && Buffer.isBuffer(body)) {
+      try {
+        const txt = body.toString('utf8');
+        body = JSON.parse(txt);
+      } catch (e) {
+        // leave as-is
+      }
+    }
     if (typeof body === 'string') {
       try {
         body = JSON.parse(body);
@@ -14,7 +23,15 @@ export const handleContact: RequestHandler = async (req, res) => {
     }
     // Some wrappers may wrap the original request body under a 'body' property
     if (body && body.body) {
-      if (typeof body.body === 'string') {
+      // If nested body is a Buffer instance
+      if (typeof Buffer !== 'undefined' && Buffer.isBuffer && Buffer.isBuffer(body.body)) {
+        try {
+          const txt = Buffer.from(body.body).toString('utf8');
+          body = JSON.parse(txt);
+        } catch (e) {
+          body = body.body;
+        }
+      } else if (typeof body.body === 'string') {
         try {
           body = JSON.parse(body.body);
         } catch (e) {
