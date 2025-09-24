@@ -38,7 +38,7 @@ export const handleContact: RequestHandler = async (req, res) => {
     const text = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
     const html = `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><hr/><p>${message.replace(/\n/g, '<br/>')}</p>`;
 
-    await transporter.sendMail({
+    const info = await transporter.sendMail({
       from: `${name} <${email}>`,
       to,
       subject,
@@ -46,7 +46,10 @@ export const handleContact: RequestHandler = async (req, res) => {
       html,
     });
 
-    return res.status(200).json({ ok: true });
+    // If using Ethereal for testing, nodemailer exposes a preview URL
+    const previewUrl = (nodemailer as any).getTestMessageUrl ? (nodemailer as any).getTestMessageUrl(info) : undefined;
+
+    return res.status(200).json({ ok: true, previewUrl });
   } catch (err: any) {
     console.error('Contact send error:', err);
     return res.status(500).json({ error: err?.message ?? 'Unknown error' });

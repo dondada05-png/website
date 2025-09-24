@@ -50,7 +50,15 @@ export default function ContactSection() {
         throw new Error(data?.error || 'Failed to send message');
       }
 
-      toast({ title: 'Message sent', description: 'Thanks — we will get back to you shortly', type: 'foreground' });
+      const data = await res.json().catch(() => ({}));
+
+      // Show preview URL when available (Ethereal local testing)
+      if (data?.previewUrl) {
+        toast({ title: 'Message sent (dev)', description: 'Open preview to inspect the email', action: { label: 'Preview', onClick: () => window.open(data.previewUrl, '_blank') }, type: 'foreground' });
+      } else {
+        toast({ title: 'Message sent', description: 'Thanks — we will get back to you shortly', type: 'foreground' });
+      }
+
       setFormData({ name: '', email: '', message: '' });
     } catch (err: any) {
       toast({ title: 'Send failed', description: err?.message || 'Unable to send message', type: 'background' });
