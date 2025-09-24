@@ -66,16 +66,8 @@ export const handleContact: RequestHandler = async (req, res) => {
     };
 
     if (!name || !email || !message) {
-      // Debugging aid: return the received body and a few headers so we can see
-      // how the serverless wrapper is passing the request. This will be removed
-      // after diagnosing the issue.
-      console.error('Contact handler missing fields. Received body:', body);
-      const debugHeaders: Record<string, string> = {};
-      const interesting = ['content-type', 'content-length', 'user-agent'];
-      for (const h of interesting) {
-        if (req.headers[h]) debugHeaders[h] = String(req.headers[h]);
-      }
-      return res.status(400).json({ error: 'Missing name, email or message', debug: { body, headers: debugHeaders } });
+      console.error('Contact handler missing fields.');
+      return res.status(400).json({ error: 'Missing name, email or message' });
     }
 
     // Build transporter from env vars. The project must provide SMTP credentials.
