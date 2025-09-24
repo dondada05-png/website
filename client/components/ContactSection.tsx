@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useToast } from '../hooks/use-toast';
+import { ToastAction } from '@/components/ui/toast';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -39,9 +40,18 @@ export default function ContactSection() {
 
     setLoading(true);
     try {
-      const res = await fetch('/api/contact', {
+      // Prefer a build-time Formspree endpoint (no SMTP needed). If not set, fall back to server /api/contact.
+      const FORMSPREE_ENDPOINT = (import.meta.env.VITE_FORMSPREE_ENDPOINT as string) || '';
+      const endpoint = FORMSPREE_ENDPOINT || '/api/contact';
+
+      const isFormspree = Boolean(FORMSPREE_ENDPOINT);
+      const headers: Record<string, string> = isFormspree
+        ? { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+        : { 'Content-Type': 'application/json' };
+
+      const res = await fetch(endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify(formData),
       });
 
@@ -52,9 +62,13 @@ export default function ContactSection() {
 
       const data = await res.json().catch(() => ({}));
 
-      // Show preview URL when available (Ethereal local testing)
-      if (data?.previewUrl) {
-        toast({ title: 'Message sent (dev)', description: 'Open preview to inspect the email', action: { label: 'Preview', onClick: () => window.open(data.previewUrl, '_blank') }, type: 'foreground' });
+      // Formspree doesn't return Ethereal preview URLs; handle both flows gracefully.
+      if (isFormspree) {
+        toast({ title: 'Message sent', description: "Delivered via Formspree — we'll reply to your email shortly.", type: 'foreground' });
+      } else if (data?.previewUrl) {
+        toast({ title: 'Message sent (dev)', description: 'Open preview to inspect the email', action: (
+          <ToastAction altText="Open email preview" onClick={() => window.open(data.previewUrl, '_blank')}>Preview</ToastAction>
+        ), type: 'foreground' });
       } else {
         toast({ title: 'Message sent', description: 'Thanks — we will get back to you shortly', type: 'foreground' });
       }
