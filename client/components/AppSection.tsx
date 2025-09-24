@@ -51,7 +51,11 @@ export default function AppSection() {
                   src={s.src}
                   alt={s.alt}
                   className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-out transform ${
-                    i === index ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
+                    i === index
+                      ? s.src === "/front.png"
+                        ? "opacity-100 scale-105"
+                        : "opacity-100 scale-100"
+                      : "opacity-0 scale-95 pointer-events-none"
                   }`}
                 />
               ))}
