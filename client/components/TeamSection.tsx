@@ -35,26 +35,27 @@ function TeamMember({ name, title, image, isPlaceholder = false }: TeamMemberPro
 export default function TeamSection() {
   const teamMembers = [
     {
-      name: "Rusango André Salvator",
+      name: "Salvator André Rusango",
       title: "Chief Executive Officer (CEO)",
       image: "/rusango.jpg?v=1",
       isPlaceholder: false
     },
     {
-      name: "Uteramahoro Avellin Bonaparte",
+      name: "Avellin Bonaparte Uteramahoro",
       title: "Chief Operational Officer (COO)",
-      isPlaceholder: true
+      image: "/avellin.jpg",
+      isPlaceholder: false
     },
     {
-      name: "Tuyishime Ricardo",
+      name: "Ricardo Tuyishimire",
       title: "Corporate Development Director",
       image: "/ricardo.jpg",
       isPlaceholder: false
     },
     {
-      name: "Mucyo Kevin",
+      name: "Kevin Mucyo",
       title: "Chief Technology Officer (CTO)",
-  image: "/kevin.JPG",
+      image: "/kevin.JPG",
       isPlaceholder: false
     }
   ];

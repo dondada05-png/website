@@ -1,4 +1,97 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
+// Persistent countdown component - stores target timestamp in localStorage so
+// the countdown keeps running across refreshes / closed tabs.
+function PersistentCountdown({ days = 100 }: { days?: number }) {
+  const STORAGE_KEY = 'stroomup_countdown_target_v1';
+  const [timeLeft, setTimeLeft] = useState<number>(0);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    let target = localStorage.getItem(STORAGE_KEY);
+    if (!target) {
+      const t = Date.now() + days * 24 * 60 * 60 * 1000;
+      localStorage.setItem(STORAGE_KEY, String(t));
+      target = String(t);
+    }
+
+    const targetMs = parseInt(target, 10);
+
+    function update() {
+      setTimeLeft(Math.max(0, targetMs - Date.now()));
+    }
+
+    update();
+    const id = window.setInterval(update, 1000);
+    return () => window.clearInterval(id);
+  }, [days]);
+
+  // convert ms to D HH:MM:SS
+  const daysLeft = Math.floor(timeLeft / (24 * 60 * 60 * 1000));
+  const hoursLeft = Math.floor((timeLeft % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
+  const minsLeft = Math.floor((timeLeft % (60 * 60 * 1000)) / (60 * 1000));
+  const secsLeft = Math.floor((timeLeft % (60 * 1000)) / 1000);
+
+  const two = (n: number) => String(n).padStart(2, '0');
+
+  return (
+    <div className="absolute top-16 left-1/2 transform -translate-x-1/2 z-50">
+      <div className="rounded-3xl p-1 bg-gradient-to-r from-indigo-600 via-purple-600 to-sky-500 shadow-2xl">
+        <div
+          aria-live="polite"
+          role="status"
+          className="bg-black/80 backdrop-blur-md text-white rounded-3xl px-5 py-4 flex items-center gap-4 max-w-[680px] w-full"
+        >
+          {/* Icon */}
+          <div className="flex-shrink-0 bg-white/6 p-3 rounded-xl">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-white" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+              <path d="M12 2v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M12 14c4 0 6-4 6-8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M5 13c1.5 0 2 2 4 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+
+          <div className="flex-1">
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="text-xs sm:text-sm uppercase tracking-wide text-white/80">Launching</div>
+                <div className="font-dm-sans font-extrabold text-xl sm:text-2xl leading-tight">Coming soon</div>
+              </div>
+              <div className="text-right text-xs text-white/60">Stay tuned</div>
+            </div>
+
+            <div className="mt-3 flex items-center gap-3">
+              {/* Days */}
+              <div className="bg-white/6 rounded-xl px-3 py-2 text-center min-w-[64px]">
+                <div className="font-mono text-xl sm:text-2xl font-semibold">{String(daysLeft)}</div>
+                <div className="text-[11px] text-white/70">Days</div>
+              </div>
+
+              {/* Hours */}
+              <div className="bg-white/6 rounded-xl px-3 py-2 text-center min-w-[56px]">
+                <div className="font-mono text-xl sm:text-2xl font-semibold">{two(hoursLeft)}</div>
+                <div className="text-[11px] text-white/70">Hours</div>
+              </div>
+
+              {/* Minutes */}
+              <div className="bg-white/6 rounded-xl px-3 py-2 text-center min-w-[56px]">
+                <div className="font-mono text-xl sm:text-2xl font-semibold">{two(minsLeft)}</div>
+                <div className="text-[11px] text-white/70">Minutes</div>
+              </div>
+
+              {/* Seconds */}
+              <div className="bg-white/6 rounded-xl px-3 py-2 text-center min-w-[56px]">
+                <div className="font-mono text-xl sm:text-2xl font-semibold">{two(secsLeft)}</div>
+                <div className="text-[11px] text-white/70">Seconds</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function HeroSection() {
   const scrollToContact = () => {
@@ -42,9 +135,10 @@ export default function HeroSection() {
       </div>
 
       {/* Hero Content */}
-  <div className="hero-content relative z-30 flex flex-col items-center justify-center min-h-[72vh] px-4 pt-20 pb-12 md:pt-52 md:pb-24 md:min-h-[80vh]">
+  <div className="hero-content relative z-30 flex flex-col items-center justify-center min-h-[72vh] px-4 pt-48 sm:pt-56 pb-12 md:pt-64 md:pb-24 md:min-h-[80vh]">
+  <PersistentCountdown days={100} />
   <div className="text-center mx-auto w-full px-4 md:px-0 max-w-[1100px]">
-            <h1 className="font-dm-sans font-bold text-white mb-8 tracking-[-2px] leading-[0.92] text-5xl sm:text-6xl md:text-7xl lg:text-[72px] xl:text-[88px]">
+            <h1 className="font-dm-sans font-bold text-white mb-8 pt-12 sm:pt-16 md:pt-20 tracking-[-2px] leading-[0.92] text-5xl sm:text-6xl md:text-7xl lg:text-[72px] xl:text-[88px]">
             <span className="block">Africa’s First Streaming</span>
             <span className="block">and Social Platform,</span>
             <span className="block">Powered by</span>

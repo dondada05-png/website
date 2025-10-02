@@ -21,7 +21,7 @@ export default function Navigation({ activeSection }: NavigationProps) {
   useEffect(() => {
     let ticking = false;
 
-    const ids = ['home', 'explore', 'stroomcoin', 'team', 'contact'];
+  const ids = ['home', 'explore', 'stroomcoin', 'app', 'team', 'contact'];
 
     const onScroll = () => {
       if (ticking) return;
@@ -61,6 +61,7 @@ export default function Navigation({ activeSection }: NavigationProps) {
     { id: 'home', label: 'Home' },
     { id: 'explore', label: 'Explore' },
     { id: 'stroomcoin', label: 'Stroomcoin' },
+    { id: 'app', label: 'App' },
     { id: 'team', label: 'Our Team' },
     { id: 'contact', label: 'Contact us' },
   ];
@@ -100,7 +101,7 @@ export default function Navigation({ activeSection }: NavigationProps) {
           <div className="sm:hidden ml-3">
             <button
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={mobileOpen ? true : false}
+              aria-expanded={mobileOpen}
               onClick={() => setMobileOpen((s) => !s)}
               className="p-2 rounded-md bg-white/5 text-white"
             >
